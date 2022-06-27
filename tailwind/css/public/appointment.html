@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--Form Container-->
+    <div class="m-auto max-w-2xl">
+        <form class="px-4 space-y-6" action="#" method="post">
+            <div class="grid place-items-center">
+                <h3 class="font-bold text-xl text-teal-700 my-3">Set Appointment Date and Time</h1>
+                <input 
+                    class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600 text-gray-200" 
+                    type="date" 
+                    name="appointmentDate">
+                <input 
+                    class="p-2 border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    placeholder="Appointment Time"
+                    name="appointmentTime">
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-gray-700">Owner Information</h1>
+                <label for="name">Name</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    name="name">
+                <br/>
+                <label for="contactNum" >Contact #</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    name="contactNum">
+                <br/>
+                <label for="email">Email</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="email"
+                    name="email">
+                <br/>
+                <label for="address">Address</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    name="address">
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-gray-700">Pet Information</h1>
+                <label for="pet">Pet Type</label>
+                <select name="pet" class="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                    <option selected>Select a Pet Type</option>
+                    <option value="">Pet 1</option>
+                    <option value="">Pet 2</option>
+                    <option value="">Pet 3</option> <!--Temporary placeholder; might just retrieve from database-->
+                </select>
+                <label for="breed">Breed</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    name="breed">
+                <br/>
+                <label for="age">Age</label>
+                <input 
+                    class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
+                    type="text" 
+                    name="age">
+                <br/>
+                <label for="services">Service(s)</label>
+                <select name="services" class="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                    <option selected>Select a Service</option>
+                    <option value="">Service 1</option>
+                    <option value="">Service 2</option>
+                    <option value="">Service 3</option> <!--Temporary placeholder; might just retrieve from database-->
+                </select>
+            </div>           
+            <div class="grid gap-3 place-items-center">
+                <input 
+                    type="submit" 
+                    value="Book Appointment" 
+                    class=" border-gray-600 px-8 p-2 rounded bg-blue-600 text-white shadow-md hover:bg-blue-800 hover:shadow-lg">
+                <input 
+                    type="reset" 
+                    value="Clear" 
+                    class=" border-gray-600 px-20 p-2 rounded bg-gray-200 shadow-md hover:bg-gray-300 hover:shadow-lg">
+                    <br/>
+            </div>
+        </form>
+    </div>
+    <!--End of Form-->
+</body>
+</html>
