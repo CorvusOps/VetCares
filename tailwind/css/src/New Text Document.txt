@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body class = "text-green-900" >
+    <div class="">
+      <div class="">
+        <div class="">
+          <div class="text-red-700">
+             <h1>LOGO</h1>
+          </div>
+          <div class="">
+            <a href="#">Admin Login</a>
+          </div>
+        </div>
+         <nav>
+           <ul>
+             <li><a href="#">
+                  <span>Home</span>
+             </li>
+             <li><a href="#">
+                  <span>Services</span>
+             </li>
+             <li><a href="#">
+                  <span>Appointments</span>
+             </li>
+             <li><a href="#">
+                  <span>Contact us</span>
+             </li>
+           </ul>
+         </nav>
+      </div>
+
+      <main>
+        <div class="">
+          <header>
+            <h2>Veterinary Clinic Name</h2>
+            <h2>Care's gently for your pets</h2>
+          </header>
+          <div class="">
+              <h4>Welcome!</h4>
+              <div class="">
+                   <div class="">
+                      <img src="" alt="">
+                   </div>
+              </div>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </body>
+</html>
