@@ -4,7 +4,7 @@
   "description": "Repository for COMP 20163 Web Development's Final Requirement: Veterinary Care and Appointment Management System",
   "main": "index.js",
   "scripts": {
-   "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css --watch"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "url": "https://github.com/CorvusOps/VetCares/issues"
   },
   "homepage": "https://github.com/CorvusOps/VetCares#readme",
-  "dependencies": {
+  "devDependencies": {
     "tailwindcss": "^3.1.4"
   }
 }
