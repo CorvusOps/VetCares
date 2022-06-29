@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-  
+
     <link rel="stylesheet" href="styles.css">
     <title></title>
   </head>
   <body class="text-green-900 font-mono flex h-screen w-screen">
     <div class="">
-      <div class="grid grid-cols-1 divide-y">
+      <div class="grid grid-cols-1 divide-y w-screen">
         <div class="flex pb-4 text-2xl pl-4 bg-gray-200">
           <div class="text-red-700">
              <h1>LOGO</h1>
@@ -17,61 +17,61 @@
             <a href="login.html">Admin Login</a>
           </div>
         </div>
-         <nav class="flex justify-evenly flex-row pb-10 pt-8 text-2xl bg-gray-100">
+         <nav class="flex justify-evenly flex-row pb-8 pt-8 text-2xl bg-gray-100">
              <a class="hover:text-red-900" href="#">
                   <span>Home</span>
              <a class="hover:text-red-900" href="#">
                   <span>Services</span>
              <a class="hover:text-red-900" href="#">
-                  <span>Appointments</span>
+                  <span>Contact Us</span>
              <a class="hover:text-red-900" href="#">
-                  <span>Contact us</span>
+               <button type="button" name="button" class="w-full rounded-full bg-green-300"> Appointments</button>
          </nav>
       </div>
 
-      <main>
-        <div>
-          <header class="group">
-            <div class="h-96 w-full  bg-center relative bg-blue-300">
-              <div class="group-hover:blur-lg object-cover w-full h-full ">
-                 <img src="vet.png" class="w-full h-full object-contain">
-              </div>
-            <div class="absolute top-0 group">
-              <h1 class="text-5xl relative left-4 text-white left-12 top-10">VetCares</h1>
-              <h3 class="text-4xl relative left-12 text-white top-20 group-hover:invisible">Cares gently for your pets</h3>
-              <p class="justify text-3xl relative  ml-24 left-1/2 text-black invisible group-hover:visible transition ease-in-out delay-150">VetCares,vows to treat your pets with care and ensure<br> proper treatment regardless of breed or type of animal <br>that will  be brought in our care. We ought to bring the <br> best services to you</p>
-            </div>
-
-          </div>
-          </header>
-
-          <header class="group">
-            <div class="h-96 w-screen  bg-center relative bg-blue-300">
-              <div class="group-hover:blur-lg object-cover w-full h-full ">
-                 <img src="law.png" class="w-full h-full object-cover">
-              </div>
-            <div class="absolute top-0 group">
-              <h1 class="text-5xl relative left-4 text-white left-12 top-10 group-hover:invisible ">VetCares</h1>
-              <h3 class="text-4xl relative left-12 text-white top-20 group-hover:text-black">Appointment Policy</h3>
-              <p class="justify text-3xl relative  ml-24 left-1/2 text-white invisible group-hover:visible transition ease-in-out delay-150 flex sm:left-1/4">Same day appointment will be allowed in times of free slots,<br>each working day a total of 6 appointments will be available<br> for VetCares' appointees to take.Appointments shall not be<br> cancelled without prior notice to avoid inconvenience</p>
-            </div>
-
-          </div>
-          </header>
-
-
+     <div class="w-full h-96 relative border-2 group">
+       <img src="vet.png" class="w-full h-96 object-contain absolute mix-blend-overlay bg-blue-400 group-hover:blur">
+       <div class="p-5">
+          <h1 class="text-black text-2xl sm:text-6xl font-body">VetCares</h1>
+          <h2 class="text-black text-sm sm:text-3xl font-light mt-5"> Cares gently for your pets</h2>
           <div class="">
-              <h4>Welcome!</h4>
-              <div class="">
-                   <div class="">
-                      <img src="" alt="">
-                   </div>
-              </div>
 
           </div>
-        </div>
-      </main>
+          <p class="flex items-baseline text-sm text-gray-900 bg-gray-500 sm:font-mono  text-justify mt-10 sm:mt-0 sm:text-2xl justify-end h-full w-full sm:text-black invisible group-hover:visible">VetCares,vows to treat your pets with care and ensure<br> proper treatment regardless of breed or type of animal <br>that will  be brought in our care. We ought to bring the <br> best services to you</p>
+       </div>
+     </div>
 
+     <div class="w-full h-96 relative border-2 group">
+       <img src="law.png" class="h-full w-full object-cover absolute mix-blend-overlay bg-blue-400 group-hover:blur">
+       <div class="p-5">
+          <h1 class="text-gray-200 text-2xl sm:text-6xl font-body">VetCares</h1>
+          <h2 class="text-white text-sm sm:text-2xl font-light mt-5">Appointment Policy</h2>
+          <div class="">
+
+          </div>
+          <p class="flex items-baseline text-sm text-gray-300 bg-gray-500 sm:font-mono  text-justify mt-10 sm:mt-0 sm:text-2xl justify-end h-full w-full sm:text-gray-200 invisible group-hover:visible">
+            Same day appointments will be allowed in times of free slots,<br>each working day a total of 6 appointments will be available<br> for VetCares' appointees to take.Appointments shall not be<br> cancelled without prior notice to avoid inconvenience</p>
+       </div>
+     </div>
+
+     <div class="w-full h-96 relative border-2 group">
+       <img src="pay.jpg" class="h-full w-full object-cover absolute mix-blend-overlay bg-blue-400 group-hover:blur">
+       <div class="p-5">
+          <h1 class="text-black text-2xl sm:text-6xl font-body">VetCares</h1>
+          <h2 class="text-black text-sm sm:text-2xl font-light mt-5">Appointment Policy</h2>
+          <div class="">
+
+          </div>
+          <p class="flex items-baseline text-sm text-white bg-gray-500 sm:font-mono  text-justify mt-10 sm:mt-0 sm:text-2xl justify-end h-full w-full sm:text-white invisible group-hover:visible">
+            Payment shall be handed over before or after the services has been done,<br>the clinic will accept cash or credit card as payments for customer convenience</p>
+       </div>
+     </div>
+
+     <footer>
+       <div class="bg-green-300 text-black">
+         Copyright (c) 2018 Copyright Holder All Rights Reserved.
+       </div>
+     </footer>
     </div>
   </body>
 </html>
