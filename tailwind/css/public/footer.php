@@ -1,6 +1,6 @@
 <?php echo'
 <footer>
-<div class="p-10 text-white bg-gray-500 grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="p-10 text-white bg-slate-600 grid grid-cols-1 md:grid-cols-2 gap-5">
     <div>
         <h2 class="text-center font-bold text-xl pr-10 pl-10 md:text-left">VetCares</h2>
         <p class="text-center text-sm pr-10 pl-10"> 
@@ -20,7 +20,7 @@
         </p>
     </div>
 </div>
-<div class="text-white bg-gray-700 text-sm p-2">
+<div class="text-white bg-gray-800 text-sm p-2">
     <p class="text-center">Copyright © 2022. All Rights Reserved.</p>
 </div>
 </footer>
