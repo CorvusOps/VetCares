@@ -6,22 +6,38 @@
     <title>Book Appointment</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-[url('images/appointmentbg.jpg')] bg-cover">
     <!--Form Container-->
-    <div class="m-auto max-w-2xl">
-        <form class="px-4 space-y-6" action="#" method="post">
+    <div class="drop-shadow-lg grid place-content-center md:place-content-start">
+        <form class="rounded-lg px-4 space-y-6 bg-slate-100 m-5 p-5 md:ml-36 w-auto md:w-96" action="#" method="post">
             <div class="grid place-items-center">
-                <h3 class="font-bold text-xl text-teal-700 my-3">Set Appointment Date and Time</h1>
+                <h3 class="font-bold text-xl text-teal-700 my-3">BOOK YOUR APPOINTMENT</h1>
                 <input 
-                    class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600 text-gray-200" 
+                    class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none text-gray-500 focus:border-blue-600 " 
                     type="date" 
-                    name="appointmentDate">
+                    name="appointmentDate"
+                    required>
                     
-                <input 
-                    class="p-2 border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
-                    type="text" 
-                    placeholder="Appointment Time"
-                    name="appointmentTime">
+                    <select name="appointmentTime" class="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-500
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option selected>Appointment Time</option>
+                        <option value="">Service 1</option>
+                        <option value="">Service 2</option>
+                        <option value="">Service 3</option> <!--Temporary placeholder; might just retrieve from database-->
+                    </select>
             </div>
             <div>
                 <h3 class="font-bold text-xl text-gray-700">Owner Information</h1>
@@ -29,25 +45,29 @@
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="text" 
-                    name="name">
+                    name="name"
+                    required>
                 <br/>
                 <label for="contactNum" >Contact #</label>
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="text" 
-                    name="contactNum">
+                    name="contactNum"
+                    required>
                 <br/>
                 <label for="email">Email</label>
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="email"
-                    name="email">
+                    name="email"
+                    required>
                 <br/>
                 <label for="address">Address</label>
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="text" 
-                    name="address">
+                    name="address"
+                    required>
             </div>
             <div>
                 <h3 class="font-bold text-xl text-gray-700">Pet Information</h1>
@@ -59,14 +79,14 @@
                 py-1.5
                 text-base
                 font-normal
-                text-gray-700
+                text-gray-500
                 bg-white bg-clip-padding bg-no-repeat
                 border border-solid border-gray-300
                 rounded
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" required>
                     <option selected>Select a Pet Type</option>
                     <option value="">Pet 1</option>
                     <option value="">Pet 2</option>
@@ -76,13 +96,15 @@
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="text" 
-                    name="breed">
+                    name="breed"
+                    required>
                 <br/>
                 <label for="age">Age</label>
                 <input 
                     class="border border-solid border-gray-300 w-full focus:outline-none focus:border-blue-600" 
                     type="text" 
-                    name="age">
+                    name="age"
+                    required>
                 <br/>
                 <label for="services">Service(s)</label>
                 <select name="services" class="form-select appearance-none
@@ -92,14 +114,14 @@
                 py-1.5
                 text-base
                 font-normal
-                text-gray-700
+                text-gray-500
                 bg-white bg-clip-padding bg-no-repeat
                 border border-solid border-gray-300
                 rounded
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" required>
                     <option selected>Select a Service</option>
                     <option value="">Service 1</option>
                     <option value="">Service 2</option>
@@ -115,10 +137,10 @@
                     type="reset" 
                     value="Clear" 
                     class=" border-gray-600 px-20 p-2 rounded bg-gray-200 shadow-md hover:bg-gray-300 hover:shadow-lg">
-                    <br/>
             </div>
         </form>
     </div>
     <!--End of Form-->
+    <a href="https://www.vecteezy.com/free-photos" class="grid place-content-end text-sm">Free Stock photos by Vecteezy</a>
 </body>
 </html>
