@@ -6,7 +6,7 @@
         <nav class="p-5 bg-white w-full shadow md:flex md:items-center md:justify-between">
             <div class="flex justify-between items-center">
                 <span class="text-2xl text-gray-700 font-bold cursor-pointer">
-                    <img class="h-10 w-10 inline" src="images/templogo.png">
+                    <img class="h-10 inline" src="images/templogo.png">
                     VetCares
                 </span>
 
@@ -15,7 +15,7 @@
                 </span>
 
             </div>
-            <ul class="md:flex md:items-center md:z-auto md:static absolute 
+            <ul class="fixed md:flex md:items-center md:z-auto md:static 
                         bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0">
                 <li class="mx-5 mt-2 my-5 md:my-0">
                     <a href="#" class="hover:text-cyan-400 duration-500">Home</a>
