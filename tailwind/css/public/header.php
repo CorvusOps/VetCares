@@ -15,10 +15,10 @@
                 </span>
 
             </div>
-            <ul class="text-gray-900 fixed md:flex md:items-center md:z-auto md:static 
+            <ul class="text-gray-900 fixed md:flex md:items-center md:z-auto md:static
                         bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0">
                 <li class="mx-5 mt-2 my-5 md:my-0">
-                    <a href="#" class="
+                    <a href="index.php" class="
                     inline-block
                     relative
                     cursor-pointer
@@ -39,7 +39,7 @@
                     hover:before:opacity-100">Home</a>
                 </li>
                 <li class="mx-5 my-5 md:my-0">
-                    <a href="#" class="inline-block
+                    <a href="services.php" class="inline-block
                     relative
                     cursor-pointer
                     transition-all
@@ -99,10 +99,10 @@
                     hover:before:opacity-100">Contact Us</a>
                 </li>
 
-                <a href="appointment.html" target="_blank"> 
+                <a href="appointment.html" target="_blank">
                     <button id="appointmentBtn" class="bg-slate-700 text-white px-6 py-1 mx-5 rounded hover:bg-gray-900 duration-500">
                         Book an Appointment
-                    </button> 
+                    </button>
                 </a>
             </ul>
         </nav>

@@ -46,7 +46,7 @@
 
             </div>
             <p class="flex items-baseline text-sm text-white bg-gray-500 sm:font-mono  text-justify mt-10 sm:mt-0 sm:text-2xl justify-end h-full w-full sm:text-white invisible group-hover:visible">
-              Payment shall be handed over before or after the services has been done,<br>the clinic will accept cash or credit card as payments for customer convenience</p>
+              Payment shall be handed over before or after the services has <br>been done,the clinic will accept cash or credit card <br>as payments for customer convenience</p>
         </div>
       </div>
     <!--FOOTER-->
