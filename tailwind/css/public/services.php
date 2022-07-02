@@ -14,7 +14,7 @@
     <div class="flex flex-col ml-12 mr-8 mt-12 ">
       <div class="font-mono mb-12 ">
         <h1 class="text-5xl font-extrabold">Services</h1>
-        <div class="ml-12 mr-8 mt-5  ">
+        <div class="md:ml-12 mr-8 mt-5">
           <h3 class="text-2xl w-full ">Examinations and Diagnosis</h3>
           <p class="text-sm md:text-[15px] ml-5 w-80 md:w-full text-justify mt-2 ">Our clinic
             offers physical examinations and diagnosis for your pets to ensure that their health are in good shape,

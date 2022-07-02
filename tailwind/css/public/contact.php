@@ -14,19 +14,19 @@
       <div class="group">
       <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
           <h2>Mobile</h2>
-          <p class="pl-20">+63-912-356-7891</p>
+          <p class="pl-20 text-sm md:text-2xl">+63-912-356-7891</p>
       </div>
       </div>
       <div class="group">
         <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
             <h2>Telephone</h2>
-            <p class="pl-20">(075)123-456</p>
+            <p class="pl-20 text-sm md:text-2xl">(075)123-456</p>
         </div>
         </div>
         <div class="group">
           <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
               <h2>Email</h2>
-              <p class="pl-20">vetcares@care4pets.com</p>
+              <p class=" pl-10 md:pl-20 text-sm md:text-2xl">vetcares@care4pets.com</p>
           </div>
           </div>
       </div>
