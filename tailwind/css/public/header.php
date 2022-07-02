@@ -79,7 +79,7 @@
                     hover:before:opacity-100">About Us</a>
                 </li>
                 <li class="mx-5 my-5 md:my-0">
-                    <a href="#" class="inline-block
+                    <a href="contact.php" class="inline-block
                     relative
                     cursor-pointer
                     transition-all

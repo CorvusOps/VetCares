@@ -52,9 +52,6 @@
                  <div class="w-full h-full pb-20 flex items-center justify-center leading-10 text-justify">
                       <p class="font-mono text2">Dr. Doge</p>
                  </div>
-
-
-
       </div>
     </div>
     <?php include'footer.php' ?>
