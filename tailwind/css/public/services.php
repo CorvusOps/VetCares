@@ -17,7 +17,7 @@
         <div class="ml-12 mr-8 mt-5  ">
           <h3 class="text-2xl w-full ">Examinations and Diagnosis</h3>
           <p class="text-sm md:text-[15px] ml-5 w-80 md:w-full text-justify mt-2 ">Our clinic
-            offers physical examinations and diagnosis for your pets that their health are in good shape,
+            offers physical examinations and diagnosis for your pets to ensure that their health are in good shape,
             or identify underlying conditions making your pets sick</p>
             <h3 class="text-2xl w-full mt-5">Endoscopy</h3>
             <p class="text-sm md:text-[15px] ml-5 w-80 md:w-full text-justify mt-2  break-words">Our veterinaries can perform endoscopy which envolves

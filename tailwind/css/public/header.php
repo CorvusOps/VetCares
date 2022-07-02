@@ -59,7 +59,7 @@
                     hover:before:opacity-100">Services</a>
                 </li>
                 <li class="mx-5 my-5 md:my-0">
-                    <a href="#" class="inline-block
+                    <a href="about.php" class="inline-block
                     relative
                     cursor-pointer
                     transition-all
