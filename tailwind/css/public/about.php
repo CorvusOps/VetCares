@@ -36,7 +36,7 @@
       </div>
       <div class="">
           <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
-             <p class="font-body pt-5 text-4xl flex items-center justify-center text-black">Our veterinaries</p>
+             <p class="font-body pt-5 text-4xl flex items-center justify-center text-black">Our veterinarians</p>
                  </div>
                  <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
                       <img src="images/Dr1.png" class="pt-20 w-96 h-96 box-border">
