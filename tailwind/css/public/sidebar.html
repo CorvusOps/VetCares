@@ -8,9 +8,9 @@
     <title></title>
   </head>
   <body class="bg-blue-300">
-    <span class="absolute text-blue-300 text-4xl top-5 left-4 cursor-pointer" onclick="Unhide()">
+    <span class="absolute text-blue-500 text-4xl top-5 left-4 cursor-pointer" onclick="Unhide()">
     <i class="bi bi-grid-fill cursor-pointer"></i></span>
-    <div class="sidebar absolute top-0 bottom-0 left-[-300px] md:left-0 p-2 w-[200px] overflow-y-auto
+    <div class="sidebar fixed top-0 bottom-0 left-[-300px] md:left-0 p-2 w-[200px] overflow-y-auto
     text-center bg-blue-500">
         <div class="text-white text-xl">
           <div class=" mt-1 flex items-center justify-center">
@@ -23,49 +23,54 @@
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-bar-chart-line-fill"></i>
-          <span class="pl-2">Dashboard</span>
+          <a href="dashboard.php" class="pl-2">Dashboard</a>
         </div>
 
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-calendar-week"></i>
-          <span class="pl-2">Appointments</span>
+          <a href="appointments.php" class="pl-2">Appointments</a>
         </div>
 
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-chat-left-dots"></i>
-          <span class="pl-2">Inquiries</span>
+          <a href="inquiries.php" class="pl-2">inquiries</a>
         </div>
 
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-tags"></i>
-          <span class="pl-2">Pet Categories</span>
+          <a href="pet.php" class="pl-2">Pet Categories</a>
         </div>
 
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-clipboard"></i>
-          <span class="pl-2">Services</span>
+          <a href="service.php" class="pl-2">Services</a>
         </div>
 
         <div class="p-2 mt-5 flex items-center rounded-md px-4 duration-200
         cursor-pointer bg-blue-200 text-black hover:text-white hover:bg-blue-400">
           <i class="bi bi-window"></i>
-            <span class="pl-2 text-sm">Records</span>
+            <a href="records.php" class="pl-2">Records</a>
         </div>
+    </div>
+    <div class="hotdog">
+
     </div>
     <script type="text/javascript">
       function Unhide() {
          document.querySelector('.sidebar').classList.toggle('left-[-300px]');
+         document.querySelector('.sidebar').classList.add('fixed');
+          document.querySelector('.sidebar').classList.add('z-10');
           document.querySelector('.sidebar').classList.add('border-r-8');
 
       }
 
       function hide() {
          document.querySelector('.sidebar').classList.toggle('left-[-300px]');
-        document.querySelector('.sidebar').classList.remove('mr-96');
+
       }
     </script>
   </body>
