@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="public/styles.css">
+    <title>Error 404: Page not Found</title>
 </head>
 <body>
-    <p>
-        <a href="src/login.php">Login</a>
-    </p>
+    <p>Error 404: Page not found.</p>
+    <a href="../index.php">return</a>
 </body>
 </html>
