@@ -103,9 +103,9 @@
                             hover:before:opacity-100">Contact Us</a>
                         </li>
 
-                        <a href="appointment.html" target="_blank">
+                        <a href="signin_account_type.php" target="_blank">
                             <button id="appointmentBtn" class="bg-slate-700 text-white px-6 py-1 mx-5 rounded hover:bg-gray-900 duration-500">
-                                Book an Appointment
+                                Sign In
                             </button>
                         </a>
                     </ul>
@@ -196,9 +196,9 @@
                         hover:before:opacity-100">Contact Us</a>
                     </li>
 
-                    <a href="appointment.html" target="_blank"> 
+                    <a href="signin_account_type.php" target="_blank"> 
                         <button id="appointmentBtn" class="bg-slate-700 text-white px-6 py-1 mx-5 rounded hover:bg-gray-900 duration-500">
-                            Book an Appointment
+                            Sign In
                         </button> 
                     </a>
                 </ul>
