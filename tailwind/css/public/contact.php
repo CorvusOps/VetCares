@@ -11,24 +11,24 @@
     <?php include'header.php' ?>
     <div class="p-20">
       <h1 class="text-4xl">Contact Us</h1>
-      <div class="group">
-        <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
-            <h2>Mobile</h2>
-            <p class="pl-20 text-sm md:text-2xl">+63-912-356-7891</p>
-        </div>
-      </div>
-      <div class="group">
-        <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
-            <h2>Telephone</h2>
-            <p class="pl-20 text-sm md:text-2xl">(075)123-456</p>
-        </div>
-      </div>
-      <div class="group">
-        <div class="p-5 w-full h-24 text-2xl mt-10 border-2 border-black text-black rounded-xl font-mono group-hover:text-white group-hover:bg-black">
-            <h2>Email</h2>
-            <p class=" pl-10 md:pl-20 text-sm md:text-2xl">vetcares@care4pets.com</p>
-        </div>
-      </div>
+
+      <section>
+        <form class="md:ml-20"action="" method="post" class="w-full">
+          <h1 class="text-2xl mt-10">Your Info</h1>
+           <fieldset>
+             <label for="Name">Name</label>
+             <br><input class="border-2 border-black rounded-md" type="text" name="name" value=""><br>
+             <label for="email">Email</label><br>
+             <input class="border-2 border-black  rounded-md" type="email" name="email" value="">
+           </fieldset>
+           <fieldset>
+             <legend>Your Message</legend>
+             <label for="message"></label>
+             <textarea class="border-black border-2 w-full md:w-1/2  rounded-md" name="message" rows="8" cols="80"></textarea>
+           </fieldset>
+           <p><input  class="p-2 border-2 border-black  rounded-md" type="submit" name="" value="Submit Message"></p>
+        </form>
+      </section>
     </div>
     <?php include'footer.php' ?>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
