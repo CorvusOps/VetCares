@@ -7,7 +7,7 @@
           <script src="javascript/script.js" charset="utf-8"></script>
     <title></title>
   </head>
-  <body>
+  <body">
     <?php include'header.php' ?>
     <div class="p-20">
       <h1 class="text-4xl">Contact Us</h1>
@@ -30,6 +30,7 @@
         </form>
       </section>
     </div>
+ 
     <?php include'footer.php' ?>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   </body>
