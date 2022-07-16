@@ -1,5 +1,5 @@
 <?php
-include '../connectdb.php';
+include 'connectdb.php';
 $success=false;
 
 $username = $_POST['username'];
@@ -20,7 +20,7 @@ if($success == true){
 	$_SESSION['user_level'] = $user_level;
 	$_SESSION['user_firstname'] = $user_firstname;
 
-	header("location: ../admin.php");
+	header("location: ../webadmin/admin.php");
 }else{
 	$result = mysqli_query($connectdb, "SELECT * FROM users WHERE username='$username' AND password='$password' AND user_level='1';");
 	while($row = mysqli_fetch_array($result))
@@ -37,7 +37,7 @@ if($success == true){
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['user_level'] = $user_level;
 		$_SESSION['user_firstname'] = $user_firstname;			
-		header("location: ../staff.php");
+		header("location: ../webstaff/staff.php");
 	}
 	else{
         $result = mysqli_query($connectdb, "SELECT * FROM users WHERE username='$username' AND password='$password' AND user_level='2';");
@@ -55,7 +55,7 @@ if($success == true){
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_level'] = $user_level;
             $_SESSION['user_firstname'] = $user_firstname;			
-            header("location: ../client.php");
+            header("location: ../webclient/client.php");
         }
         else
         {

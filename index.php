@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="public/styles.css">
 </head>
 <body>
+    <h1 class="text-3xl text-slate-500 hover:text-blue-900 font-bold underline">
+    Hover me hee hee.
+    </h1>
     <p>
         <a href="src/login.php">Login</a>
     </p>

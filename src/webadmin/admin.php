@@ -1,5 +1,5 @@
 <?php
-include 'connectdb.php';
+include '../includes/connectdb.php';
 	if($_SESSION['admin_sid']==session_id())
 	{
 		?>
@@ -10,10 +10,19 @@ include 'connectdb.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
+	<!--
+		This is the styles stuff.
+			since public folder is 2 folders back.
+			I use ../../
+	 -->
+	<link rel="stylesheet" href="../../public/styles.css">
 </head>
 <body>
     <p>im admin</p>
-    <a href="includes/logout.php">logout</a>
+	<h1 class="text-3xl text-slate-500 hover:text-blue-900 font-bold underline">
+    Hover me hee hee.
+    </h1>
+    <a href="../includes/logout.php">logout</a>
 </body>
 </html>
 <?php
