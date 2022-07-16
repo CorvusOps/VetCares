@@ -3,6 +3,10 @@
 <div class="p-10 text-white bg-slate-600 grid grid-cols-1 md:grid-cols-2 gap-5">
     <div>
         <h2 class="text-center font-bold text-xl pr-10 pl-10 md:text-left">VetCares</h2>
+        <p class="text-center pr-10 pl-10 md:text-left">
+        Business Time: 8:00 AM - 5:00 PM<br/>
+        Monday - Friday
+        </p>
         <p class="text-center text-sm pr-10 pl-10"> 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
