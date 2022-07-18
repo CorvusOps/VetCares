@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Client Panel</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'clientsidebar.html' ?>
 
-            <h1 class="text-4xl md:ml-16 mt-5 text-white justify-center text-center w-full ">Dashboard</h1>
+  <h1 class="md:ml-16 m-auto text-4xl text-white font-bold justify-center mt-10 text-center">Dashboard</h1>
         <div class="ml-10 mt-10 sm:ml-50 md:ml-60 float-left w-1/3 ">
           <div class="shadow-2xl h-20  sm:text-2xl text-2xl md:text-5xl w-full  bg-gradient-to-r from-blue-400 to-blue-500 border-b-0 border-blue-300 relative h-32 md:h-48  mt-12   md:pl-0  items-center md:justify-center text-white rounded">
             <p class="text-sm md:text-4xl absolute mt-0 top-0 p-2 w-10/12 md:text-3xl pl-3">Appointments Done</p>

@@ -10,8 +10,7 @@
 
   <?php include 'clientsidebar.html' ?>
 
-            <h1 class="text-4xl md:ml-16 mt-5 text-white justify-center text-center w-full">Pet's Information</h1>
-
+  <h1 class="md:ml-16 m-auto text-4xl text-white font-bold justify-center mt-10 text-center">Pets' Information</h1>
 
       <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
 
@@ -32,7 +31,6 @@
           <td class="border-2 border-blue-800">Dr. Doge</td>
         </tr>
       </table>
-
 
   </body>
 </html>
