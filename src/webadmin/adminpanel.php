@@ -19,7 +19,6 @@ include '../includes/connectdb.php';
         <div class=" ml-20 mt-20 md:mt-20 md:ml-60 md:mr-4 w-full h-60">
           <form class="" action="index.html" method="post">
 
-
 						<br><label for="fname" class="font-bold">First Name:</label>
 						<input type="text" name="fname" placeholder="First Name" class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black"><br>
 
@@ -55,7 +54,7 @@ include '../includes/connectdb.php';
 			if($_SESSION['customer_sid']==session_id()){
 				header("location:404.php");
 			}else{
-				header("location:login.php");
+				header("location:../login.php");
 			}
 		}
 	}
