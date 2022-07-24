@@ -1,9 +1,11 @@
 <?php
 include '../includes/connectdb.php';
-
-
 	if($_SESSION['staff_sid']==session_id())
 	{
+    $sql = "SELECT petcategoryID, name, date_created FROM pet_category";
+    $result = $connectdb->query($sql);
+
+    if ($result->num_rows > 0) {
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,20 +21,32 @@ include '../includes/connectdb.php';
 
       <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
         <caption class="font-extrabold text-2xl">Pet Categories</caption>
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/5 border-2 border-blue-800">Patient</th>
-          <th class="w-1/5 border-2 border-blue-800">Pet Category</th>
-          <th class="w-1/5 border-2 border-blue-800">Name</th>
-        </tr>
-        <tr>
-          <td class="border-2 border-blue-800 top-0">Pt1</td>
-          <td class="border-2 border-blue-800">Dog</td>
-          <td class="border-2 border-blue-800 text-sm">Spotty</td>
-        </tr>
+        <thead>
+          <tr class="border-2 border-blue-800">
+            <th class="w-1/5 border-2 border-blue-800">Category ID</th>
+            <th class="w-1/5 border-2 border-blue-800">Pet Type</th>
+            <th class="w-1/5 border-2 border-blue-800">Date Created</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php   
+            while($row = $result->fetch_assoc()) {
+              echo'<tr>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["petcategoryID"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["name"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["date_created"].'</td>';
+  }           echo '</tr>';      
+					?>
+
+        </tbody>
       </table>
   </body>
 </html>
 <?php
+} else {
+  echo "No records found.";
+}
 	}else
 	{
 		if($_SESSION['admin_sid']==session_id()){
