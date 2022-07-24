@@ -17,20 +17,42 @@ else{
     <title>Document</title>
     <link rel="stylesheet" href="../public/styles.css">
 </head>
-<body>
-    <fieldset>
-        <form method="post" action="includes/validation.php">
-            <input name="username" type="text" >
-            <input name="password" type="password">
-            <button type="submit">submit</button>
-            <!--
-            <input type="submit" name="submit" value="Login">
-             -->
-        </form>
-    </fieldset>
-    <h1 class="text-3xl text-slate-500 hover:text-blue-900 font-bold underline">
-    Hover me hee hee.
-    </h1>
+<body class="bg-blue-200">
+            <div class="drop-shadow-lg grid place-items-center h-screen  bg-blue-200">
+                <form class="client_login rounded-lg px-4 bg-slate-100 m-5 p-5 w-auto md:w-1/3" action="includes/validation.php" method="post">
+                    
+                    <div class="grid place-items-center">
+                        <span class="text-3xl text-gray-700 font-bold">
+                            <img class="h-10 inline" src="images/templogo.png">
+                            VetCares: Record System
+                        </span>
+                    </div>
+                    
+                    <h2 class="mt-5 font-bold text-center text-4xl text-gray-700">
+                        Sign In
+                    </h2>
+
+                    <div class="px-8">
+                    <label for="userID">Username</label>
+                        <input class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none text-gray-500 focus:border-blue-600"
+                                type="text" name="userID" placeholder="Enter your Username" required>
+                        <label for="pass">Password</label>
+
+                        <input class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none text-gray-500 focus:border-blue-600"
+                                type="password" name="password" placeholder="Enter your Password" required>
+                    </div>
+
+                    <div class="my-3 grid place-items-center"> <!--Div for Buttons-->
+                        <input type="submit" 
+                                value="Log In" 
+                                name="login-submit"
+                                class="border-gray-600 px-6 p-2 rounded bg-blue-600 text-white shadow-md hover:bg-blue-800 hover:shadow-lg">
+                    </div>
+                    <div class="text-center  hover:text-blue-700">
+                        <a href="../index.php" class="text-sm"><br/>Back to website</a>
+                    </div>
+                </form>
+            </div>
 </body>
 </html>
 <?php

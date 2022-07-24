@@ -43,14 +43,14 @@
              <p class="font-body pt-5 text-4xl flex items-center justify-center text-black">Our veterinarians</p>
                  </div>
                  <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
-                      <img src="images/Dr1.png" class="pt-20 w-96 h-96 box-border">
+                      <img src="src/images/Dr1.png" class="pt-20 w-96 h-96 box-border">
                  </div>
                  <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
                       <p class="font-mono text2">Dr. Quack</p>
                  </div>
 
                  <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
-                      <img src="images/dr2.jpg" class="pt-20 w-96 h-96 box-border ">
+                      <img src="src/images/dr2.jpg" class="pt-20 w-96 h-96 box-border ">
                  </div>
 
                  <div class="w-full h-full pb-20 flex items-center justify-center leading-10 text-justify">
@@ -58,7 +58,9 @@
                  </div>
       </div>
     </div>
-    <?php include'footer.php' ?>
+    <!--FOOTER-->
+    <?php include 'src/includes/footer.php';?>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 

@@ -83,7 +83,9 @@
         </div>
       </div>
 
-    <?php include 'includes/footer.php' ;?>
+    <!--FOOTER-->
+    <?php include 'src/includes/footer.php';?>
+    
     <script src="javascript/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
