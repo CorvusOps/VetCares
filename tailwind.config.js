@@ -6,7 +6,16 @@ module.exports = {
         "./src/webclient/**/*.{html,js,php}",
         "./*.{html,js,php}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        body:['Dancing Script']
+      }
+    },
   },
   plugins: [],
+  variants: {
+    extend: {
+        display: ["group-hover"],
+    },
+  },
 }

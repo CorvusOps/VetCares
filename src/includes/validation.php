@@ -11,7 +11,7 @@ while($row = mysqli_fetch_array($result)){
 	$userID = $row['userID'];
 	$user_firstname = $row['user_firstname'];
 	$user_level = $row['user_level'];
-}
+}	
 
 if($success == true){	
 	session_start();
@@ -20,7 +20,7 @@ if($success == true){
 	$_SESSION['user_level'] = $user_level;
 	$_SESSION['user_firstname'] = $user_firstname;
 
-	header("location: ../webadmin/admin.php");
+	header("location: ../webadmin/adminpanel.php");
 }else{
 	$result = mysqli_query($connectdb, "SELECT * FROM users WHERE username='$username' AND password='$password' AND user_level='1';");
 	while($row = mysqli_fetch_array($result))
@@ -37,7 +37,7 @@ if($success == true){
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['user_level'] = $user_level;
 		$_SESSION['user_firstname'] = $user_firstname;			
-		header("location: ../webstaff/staff.php");
+		header("location: ../webstaff/dashboard.php");
 	}
 	else{
         $result = mysqli_query($connectdb, "SELECT * FROM users WHERE username='$username' AND password='$password' AND user_level='2';");
@@ -55,7 +55,7 @@ if($success == true){
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_level'] = $user_level;
             $_SESSION['user_firstname'] = $user_firstname;			
-            header("location: ../webclient/client.php");
+            header("location: ../webclient/clientpanel.php");
         }
         else
         {

@@ -33,9 +33,9 @@ else{
                     </h2>
 
                     <div class="px-8">
-                    <label for="userID">Username</label>
+                    <label for="username">Username</label>
                         <input class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none text-gray-500 focus:border-blue-600"
-                                type="text" name="userID" placeholder="Enter your Username" required>
+                                type="text" name="username" placeholder="Enter your Username" required>
                         <label for="pass">Password</label>
 
                         <input class="p-2 mb-3 border border-solid border-gray-300 w-full focus:outline-none text-gray-500 focus:border-blue-600"
