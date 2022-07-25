@@ -33,10 +33,10 @@ include '../includes/connectdb.php';
       <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
         <thead>
           <tr class="border-2 border-blue-800">
-            <th class="w-2/5 border-2 border-blue-800">Service</th>
-            <th class="w-3/5 border-2 border-blue-800">Description</th>
-            <th class="w-1/5 border-2 border-blue-800">Price</th>
-            <th class="w-1 border-2 border-blue-800">Action</th>
+            <th class=" w-3/12 border-2 border-blue-800">Service</th>
+            <th class=" w-4/12 border-2 border-blue-800">Description</th>
+            <th class=" w-2/12 border-2 border-blue-800">Price</th>
+            <th class=" w-2/12 border-2 border-blue-800">Action</th>
           </tr>
         <thead>
         <!---
@@ -55,11 +55,9 @@ include '../includes/connectdb.php';
               echo   '<td class="border-2 border-blue-800">'.$row["serviceDesc"].'</td>';
               echo   '<td class="border-2 border-blue-800">'.$row["servicePrice"].'</td>';
               echo   '<td class="border-2 border-blue-800">';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">Edit</a>';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">Delete</a>';
-                
-              echo '</td>';
-            
+                echo '<a href="../crud/service_edit.php?id='.$row["servicesID"].'">Edit </a>';
+                echo '<a href="../crud/service_delete.php?servicesID='.$row['servicesID'].'">Delete </a>';
+              echo '</td>';      
             echo '</tr>';
 
           }
