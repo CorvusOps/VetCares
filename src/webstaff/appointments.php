@@ -17,35 +17,93 @@ include '../includes/connectdb.php';
 
   <?php include 'sidebar.html' ?>
 
-      <table class="border-2 border-blue-800 ml-auto mr-auto mt-20 md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 ">
-        <caption class="font-extrabold text-2xl">Appointments</caption>
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/12 border-2 border-blue-800">Patient</th>
-          <th class="w-1/12 border-2 border-blue-800">Date</th>
-          <th class="w-1/12 border-2 border-blue-800">Time</th>
-          <th class="w-1/12 border-2 border-blue-800">Service Needed</th>
-          <th class="w-1/12 border-2 border-blue-800">Pet</th>
-          <th class="w-1/12 border-2 border-blue-800">Veterinary</th>
-          <th class="w-1/12 border-2 border-blue-800">Status</th>
-        </tr>
-        <tr>
-          <td class="border-2 border-blue-800">Pt1</td>
-          <td class="border-2 border-blue-800">15/07/2022</td>
-          <td class="border-2 border-blue-800">7:00 am</td>
-          <td class="border-2 border-blue-800">Endoscopy</td>
-          <td class="border-2 border-blue-800">Dog</td>
-          <td class="border-2 border-blue-800">Dr.Doge</td>
-          <td class="border-2 border-blue-800">
-              <select class="border-blue-800 bg-blue-200 md:bg-blue-300">
-                <option value="pending">Pending</option>
-                <option value="accepted">Approved</option>
-                <option value="successful">Complete</option>
-                  <option value="successful">Reject</option>
-               </select>
-          </td>
-        </tr>
-      </table>
 
+
+			<table class=" m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
+		 <?php
+			$date = date("Y-m-d");
+			$dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments;");
+			?>
+
+				<caption class="font-extrabold text-2xl">Today's Appointments</caption>
+				<tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
+					<th class="w-1/5  bg-white">Appointment ID</th>
+					<th class="w-1/5  bg-white">Date</th>
+					<th class="w-1/5  bg-white">Time</th>
+					<th class="w-1/5  bg-white">Services ID</th>
+					<th class="w-1/5  bg-white">Pet ID</th>
+					<th class="w-1/5  bg-white">Status</th>
+
+
+				</tr>
+				<?php
+				while($row = $dateQuery->fetch_assoc()) {
+					echo'<tr>';
+						echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+
+						if($row["status"]=="pending"){
+							$val = $row["status"];
+					echo '<td class="bg-white">';
+					echo '<form method="POST" id="here" action="changestat.php">';
+					echo '<select class="bg-white" name="stats" onchange="this.form.submit()">';
+					echo '<option value='.$row["status"].'>'.$row["status"].'</option>';
+					echo '<option value="approved">approved</option></a>';
+					echo '<option value="complete">complete</option>';
+					echo '<option value="reject">reject</option>';
+					echo '</select>';
+					echo '<input name="ID" class="hidden" value="'.$row["appointmentID"].'">';
+						echo '</form>';
+					echo '</td>';
+				}else if($row["status"]=="approved"){
+					$val = $row["status"];
+			echo '<td class="bg-white">';
+			echo '<form method="POST" id="here" action="changestat.php">';
+			echo '<select class="bg-white" name="stats" onchange="this.form.submit()">';
+			echo '<option value='.$row["status"].'>'.$row["status"].'</option>';
+			echo '<option value="pending">pending</option></a>';
+			echo '<option value="complete">complete</option>';
+			echo '<option value="reject">reject</option>';
+			echo '</select>';
+			echo '<input name="ID" class="hidden" value="'.$row["appointmentID"].'">';
+				echo '</form>';
+			echo '</td>';
+		}else if($row["status"]=="complete"){
+			$val = $row["status"];
+	echo '<td class="bg-white">';
+	echo '<form method="POST" id="here" action="changestat.php">';
+	echo '<select class="bg-white" name="stats" onchange="this.form.submit()">';
+	echo '<option value='.$row["status"].'>'.$row["status"].'</option>';
+	echo '<option value="pending">pending</option></a>';
+	echo '<option value="approved">approved</option>';
+	echo '<option value="reject">reject</option>';
+	echo '</select>';
+	echo '<input name="ID" class="hidden" value="'.$row["appointmentID"].'">';
+		echo '</form>';
+	echo '</td>';
+}else if($row["status"]=="reject"){
+	$val = $row["status"];
+echo '<td class="bg-white">';
+echo '<form method="POST" id="here" action="changestat.php">';
+echo '<select class="bg-white" name="stats" onchange="this.form.submit()">';
+echo '<option value='.$row["status"].'>'.$row["status"].'</option>';
+echo '<option value="pending">pending</option></a>';
+echo '<option value="approved">approved</option>';
+echo '<option value="complete">complete</option>';
+echo '</select>';
+echo '<input name="ID" class="hidden" value="'.$row["appointmentID"].'">';
+echo '</form>';
+echo '</td>';
+}
+
+
+				}
+					echo '</tr>';
+				 ?>
+			</table>
 
   </body>
 </html>
@@ -64,3 +122,29 @@ include '../includes/connectdb.php';
 		}
 	}
 ?>
+<?php
+
+  if(isset($_POST["stats"]) && !empty($_POST["stats"])){
+      $ID = $_POST['stats'];
+      #idk but trigger modal to
+
+      $query = "INSERT INTO appointments(status)
+  VALUES ('$ID')";
+
+      if(mysqli_query($connectdb, $query)){
+          echo "<script>
+          alert('Status successfully changed!');
+          window.location = '../webstaff/appointments.php';
+          </script>";
+
+      } else{
+          echo "<script>
+          alert('Failed to commit changes');
+          window.location = '../webstaff/appointments.php';
+          </script>";
+      }
+
+  }
+
+
+ ?>
