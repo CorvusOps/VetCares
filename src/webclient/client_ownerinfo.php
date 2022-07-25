@@ -19,29 +19,39 @@ include '../includes/connectdb.php';
 
   <?php include 'clientsidebar.html' ?>
 
-  <h1 class="m-auto text-4xl md:ml-16 text-white font-bold justify-center mt-10 text-center">Personal Information</h1>
+    <div class="grid place-items-center md:ml-56 pt-5">
+       <h1 class="font-extrabold text-3xl text-center text-blue-900">PERSONAL INFORMATION</h1>
+    </div>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/5 border-2 border-blue-800">Name</th>
-          <th class="w-1/5 border-2 border-blue-800">Address</th>
-          <th class="w-1/5 border-2 border-blue-800">Phone Number</th>
-          <th class="w-1/5 border-2 border-blue-800">Email</th>
-        </tr>
-        <?php  
-        if ($result->num_rows > 0) {
- 
-            while($row = $result->fetch_assoc()) {
-              echo'<tr>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["user_firstname"].'&nbsp'.$row["user_lastname"].'</td>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["contact_num"].'</td>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["email"].'</td>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["address"].'</td>';
-            }           
-              echo '</tr>';      
-					?>
+    <div class="grid place-items-center">
+      <table class="m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 md:w-1/3 text-left border-collapse lg:ml-60 shadow-lg">
+       
+        <tbody class="text-left">
+          <?php  
+          if ($result->num_rows > 0) {
+  
+              while($row = $result->fetch_assoc()) {
+                echo'<tr>';
+                echo '<th class="p-2 bg-white top-0">Name</th>';
+                echo'<td class="bg-white top-0 p-1">'.$row["user_firstname"].'&nbsp'.$row["user_lastname"].'</td>';
+                echo'</tr>';
+                echo'<tr>';
+                echo '<th class="p-2 bg-white top-0">Address</th>';
+                echo'<td class="bg-white top-0 p-1">'.$row["contact_num"].'</td>';
+                echo'</tr>';
+                echo'<tr>';
+                echo '<th class="p-2 bg-white top-0">Phone Number</th>';
+                echo'<td class="bg-white top-0 p-1">'.$row["email"].'</td>';
+                echo'</tr>';
+                echo'<tr>';
+                echo '<th class="p-2 bg-white top-0">Email</th>';
+                echo'<td class="bg-white top-0 p-1">'.$row["address"].'</td>';
+              }           
+                echo '</tr>';      
+            ?>
+        </tbody>
       </table>
+    </div>
 
   </body>
 </html>
