@@ -13,7 +13,7 @@ include '../includes/connectdb.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Pet Category</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
@@ -29,25 +29,23 @@ include '../includes/connectdb.php';
       </button>
 
     </div>
-
-
-      <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        
-        <thead>
-          <tr class="border-2 border-blue-800">
-            <th class="w-1/5 border-2 border-blue-800">Category ID</th>
-            <th class="w-1/5 border-2 border-blue-800">Pet Type</th>
-            <th class="w-1/5 border-2 border-blue-800">Date Created</th>
+      
+    <table class=" m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+        <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <tr class="">
+            <th class="w-1/5 p-2">Category ID</th>
+            <th class="w-1/5 p-2">Pet Type</th>
+            <th class="w-1/5 p-2">Date Created</th>
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="text-center">
           <?php   
             while($row = $result->fetch_assoc()) {
               echo'<tr>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["petcategoryID"].'</td>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["name"].'</td>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["date_created"].'</td>';
+              echo'<td class=" bg-white top-0 p-1">'.$row["petcategoryID"].'</td>';
+              echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>';
+              echo'<td class="bg-white top-0 p-1">'.$row["date_created"].'</td>';
   }           echo '</tr>';      
 					?>
 
