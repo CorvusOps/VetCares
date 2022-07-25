@@ -1,8 +1,8 @@
 <?php
 include '../includes/connectdb.php';
-	if($_SESSION['admin_sid']==session_id())
-	{
-		?>
+if($_SESSION['admin_sid']==session_id())
+{
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,31 +14,63 @@ include '../includes/connectdb.php';
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'adminsidebar.html' ?>
-      <h1 class="m-auto text-4xl font-extrabold justify-center mt-5 text-center">Account Registration</h1>
       <div class="">
-        <div class=" ml-20 mt-20 md:mt-20 md:ml-60 md:mr-4 w-full h-60">
-          <form class="" action="index.html" method="post">
+        <div>
+          <form class="px-4 rounded mx-auto max-w-3xl w-full my-32 inputs space-y-6" action="adminpanel.php" method="post">
+		  	<div>
+				<h1 class="text-4xl font-bold">ACCOUNT REGISTRATION</h1>
+				<p class="text-gray-600">
+				Changes you make will be visible to other users
+				</p>
+			</div>
+			<div class="flex space-x-4">
+				<div class="w-1/2">
+					<label for="fname" class="font-bold">First Name:</label>
+					<input type="text" name="fname" placeholder="First Name" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400" required><br>
+				</div>
+				<div class="w-1/2">
+					<label for="lname" class="font-bold">Last Name:</label>
+					<input type="text" name="lname" placeholder="Last Name" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400" required><br>
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="user" class="font-bold w-2">Username:</label>
+					<input type="text" name="user" placeholder="Username" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400" required><br>
+				</div>
+				<br>
+				<div>	
+					<label for="pass" class="font-bold">Password:</label>
+					<input type="password" name="pass" placeholder="Password" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400" required><br>
+				</div>
+			</div>
+			<div  class="flex space-x-4">
+				<div class="w-1/2">
+					<label for="level" class="font-bold">User Level</label>
+					<select class="flex border border-gray-400 px-4 py-2 rounded focus:outline-none focus:border-teal-400" name="level">
+						<option value="0">[0]admin</option>
+						<option value="1">[1]staff</option>
+						<option value="2" selected>[2]client</option>
+					</select>
+				</div>
+				<div class="w-1/2">
+					<label for="contactNum" class="font-bold">Contact Number:</label>
+					<input type="text" name="contactNum" placeholder="09xxxxxxxxx" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"><br>
+				</div>
+			</div>
+			<div class="flex space-x-4">
+				<div class="w-1/2">
+					<label for="email" class="font-bold">Email:</label>
+					<input type="text" name="email" placeholder="sample@sample.com" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"><br>
+				</div>
+				<div class="w-1/2">
+					<label for="address" class="font-bold">Address:</label>
+					<input type="text" name="address" placeholder="______ City" class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"><br>
+				</div>
+			</div>
 
-						<br><label for="fname" class="font-bold">First Name:</label>
-						<input type="text" name="fname" placeholder="First Name" class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black"><br>
-
-						<br><label for="lname" class="font-bold">Last Name:</label>
-						<input type="text" name="lname" placeholder="Last Name" class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black"><br>
-
-            <br><label for="user" class="font-bold w-2">Username:</label>
-            <input type="text" name="user" placeholder="Username" class="bg-blue-200 md:bg-blue-300 border-b-2 border-black pl-1" ><br>
-
-            <br><label for="pass" class="font-bold">Password:</label>
-            <input type="password" name="pass" placeholder="Password" class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black pl-2"><br>
-						<br><label for="level" class="font-bold">User Level</label>
-						<select class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="level">
-							<option value="0">[0]admin</option>
-							<option value="1">[1]staff</option>
-							<option value="2" selected>[2]client</option>
-						</select>
-
-            <br><button type="submit" name="button1" formaction="useradd.php" class="mt-5 border-black border-2 p-2 rounded-md">Add User</button>
-            <button type="submit" name="button2" formaction="userdelete.php" class="mt-5 border-black border-2 p-2 rounded-md">Delete User</button>
+            <button type="submit" name="button1" formaction="../crud/user_add.php" class="mt-5 border-green-700 border-2 p-2 rounded-md">Add User</button>
+            <button type="reset" name="button2" class="mt-5 border-gray-700 border-2 p-2 rounded-md">Clear</button>
           </form>
         </div>
       </div>

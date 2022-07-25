@@ -1,6 +1,5 @@
 <?php
 include '../includes/connectdb.php';
-$success=false;
 
 $pet_type = $_POST['pet_type'];
 

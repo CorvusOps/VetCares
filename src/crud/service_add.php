@@ -1,21 +1,24 @@
 <?php
 include '../includes/connectdb.php';
-$success=false;
 
 $services = $_POST['services'];
 $description = $_POST['description'];
 $price = $_POST['price'];
 
-
-$sql = "INSERT INTO services (serviceName,serviceDesc,servicePrice)
+$servicequery = "INSERT INTO services (serviceName,serviceDesc,servicePrice)
 VALUES ('$services','$description','$price');";
 
-$result = $connectdb->query($sql);
+if(mysqli_query($connectdb, $servicequery)){
+  echo "<script> 
+  alert('Category successfully added!'); 
+  window.location = '../webstaff/service.php'; 
+  </script>";  
+  
+} else{
+  echo "<script>
+  alert('Failed to add.');  
+  window.location = '../webstaff/service.php';
+  </script>";  
 
-if($result){
-  header('Location: ../webstaff/service.php');
-}else{
-  echo "failed";
-  die();
 }
  ?>
