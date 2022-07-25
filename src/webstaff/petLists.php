@@ -51,7 +51,7 @@ if($_SESSION['staff_sid']==session_id())
                   echo'<td class="bg-white top-0 p-1">'.$row["petAge"].'</td>';
                   echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>'; 
                   echo   '<td class="bg-white top-0 p-2">';
-                  echo '<a href="../crud/petlist_edit.php?id='.$row["pet_recordID"].'">
+                  echo '<a href="petlist_editpage.php?pet_recordID='.$row["pet_recordID"].'">
                     <ion-icon name="create-outline"></ion-icon> </a>';
                   echo '<a href="../crud/petlist_delete.php?pet_recordID='.$row['pet_recordID'].'">
                     <ion-icon name="trash-outline"></ion-icon></a>';
