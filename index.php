@@ -11,7 +11,7 @@
     <div class="">
       <div>
       <!--HEADER-->
-      <?php include 'src/includes/header.php';?>
+      <?php include 'src/includes/header.php' ?>
       </div>
       
       <div class="mt-8 grid lg:grid-cols-3 gap-3 mb-8">

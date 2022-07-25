@@ -19,13 +19,16 @@ include '../includes/connectdb.php';
 
     <div class="grid place-items-center pt-5">
         <h1 class="font-extrabold text-3xl text-center text-black">Pet Category</h1>
-      </div>
+    </div>
+
 
       <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
-        <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
+        <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
                 Add New Service
         </button>
       </div>
+  <?php include 'modal_addservice.php' ?>
+
 
       <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
         <thead>
@@ -64,6 +67,12 @@ include '../includes/connectdb.php';
           </tbody>
 
       </table>
+
+     <!--JAVASCRIPT FILES-->
+     <script src="src/javascript/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
       
   </body>
 </html>
