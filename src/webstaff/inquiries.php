@@ -4,7 +4,7 @@ include '../includes/connectdb.php';
 	{
 		$sql = "SELECT inquiryID, inquirerName, inquirerEmail, inquirerNumber, inquirerMessage FROM inquiries";
 		$result = $connectdb->query($sql);
-		
+
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -33,28 +33,33 @@ include '../includes/connectdb.php';
           </tr>
         </thead>
         <tbody class="text-center">
-        <?php   
+        <?php
         if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
+
             echo'<tr>';
               echo'<td class="bg-white top-0 p-2">'.$row["inquiryID"].'</td>';
               echo'<td class="bg-white top-0 p-2">'.$row["inquirerName"].'</td>';
               echo'<td class="bg-white top-0 p-2">'.$row["inquirerEmail"].'</td>';
               echo'<td class="bg-white top-0 p-2">'.$row["inquirerNumber"].'</td>';
               echo'<td class="bg-white top-0 p-2">'.$row["inquirerMessage"].'</td>';
-              echo'<td class="bg-white top-0 p-2">
-                <a href="#"> <ion-icon name="trash-outline"></ion-icon> </a>
-                </td>';
-          }            
-            echo '</tr>';      
+							echo   '<td class="bg-white top-0 p-2">';
+								 echo '<a href="../crud/service_inqDelete.php?inquiryID='.$row['inquiryID'].'">
+								<ion-icon name="trash-outline"></ion-icon></a>';
+							echo '</td>';
+          }
+            echo '</tr>';
         ?>
         </tbody>
       </table>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
+			<!--JAVASCRIPT FILES-->
+      <script src="src/javascript/script.js"></script>
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+
   </body>
 </html>
 <?php
@@ -75,4 +80,3 @@ include '../includes/connectdb.php';
 		}
 	}
 ?>
-
