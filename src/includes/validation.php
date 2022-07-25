@@ -60,8 +60,11 @@ if($success == true){
             header("location: ../webclient/clientpanel.php");
         }
         else
-        {
-            header("location: ../login.php");
+        {  echo "<script>
+			alert('Invalid username or password.');  
+			window.location = '../login.php';
+			</script>"; 
+        
         }
     }
 }

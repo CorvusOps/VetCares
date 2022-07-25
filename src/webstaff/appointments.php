@@ -11,31 +11,36 @@ include '../includes/connectdb.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Appointments</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'sidebar.html' ?>
 
+	<div class="grid place-items-center pt-5">
+		<h1 class="font-extrabold text-3xl text-center text-blue-900">APPOINTMENTS</h1>
+    </div>
 
-
-			<table class=" m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
+		<table class="m-auto md:mt-5 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
 		 <?php
 			$date = date("Y-m-d");
-			$dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments;");
+			$dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID, a.schedule, a.time, a.servicesID, a.petID, p.pet_recordID,
+									p.petName, s.servicesID, s.serviceName, a.status FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
+									LEFT JOIN services AS s ON a.servicesID=s.servicesID;");
 			?>
-
-				<caption class="font-extrabold text-2xl">Today's Appointments</caption>
-				<tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
-					<th class="w-1/5  bg-white">Appointment ID</th>
-					<th class="w-1/5  bg-white">Date</th>
-					<th class="w-1/5  bg-white">Time</th>
-					<th class="w-1/5  bg-white">Services ID</th>
-					<th class="w-1/5  bg-white">Pet ID</th>
-					<th class="w-1/5  bg-white">Status</th>
-
-
+			<thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+				<tr class="">
+					<th class="p-2">Appointment ID</th>
+					<th class="p-2">Date</th>
+					<th class="p-2">Time</th>
+					<th class="p-2">Service ID</th>
+					<th class="p-2">Service Name</th>
+					<th class="p-2">Pet ID</th>
+					<th class="p-2">Pet Name</th>
+					<th class="p-2">Status</th>
 				</tr>
+			</thead>
+			<tbody class="text-center">
 				<?php
 				while($row = $dateQuery->fetch_assoc()) {
 					echo'<tr>';
@@ -43,7 +48,9 @@ include '../includes/connectdb.php';
 						echo'<td class="bg-white top-0 p-1">'.$row["dates"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
 
 						if($row["status"]=="pending"){
 							$val = $row["status"];
@@ -103,6 +110,7 @@ echo '</td>';
 				}
 					echo '</tr>';
 				 ?>
+				 </tbody>
 			</table>
 
   </body>
