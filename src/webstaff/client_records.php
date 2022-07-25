@@ -47,7 +47,7 @@ include '../includes/connectdb.php';
                 echo'<td class=bg-white top-0 p-1">'.$row["address"].'</td>';
                 echo'<td class=bg-white top-0 p-1">'.$row["date_added"].'</td>';
                 echo   '<td class="bg-white top-0 p-2">';
-                echo '<a href="../crud/clientlist_edit.php?id='.$row["userID"].'">
+                echo '<a href="clientlist_editpage.php?userID='.$row["userID"].'">
                       <ion-icon name="create-outline"></ion-icon> </a>';
                 echo '<a href="../crud/clientlist_delete.php?userID='.$row['userID'].'">
                       <ion-icon name="trash-outline"></ion-icon></a>';
