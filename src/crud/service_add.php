@@ -1,5 +1,7 @@
 <?php
 include '../includes/connectdb.php';
+$success=false;
+
 $services = $_POST['services'];
 $description = $_POST['description'];
 $price = $_POST['price'];
@@ -7,6 +9,7 @@ $price = $_POST['price'];
 
 $sql = "INSERT INTO services (serviceName,serviceDesc,servicePrice)
 VALUES ('$services','$description','$price');";
+
 $result = $connectdb->query($sql);
 
 if($result){
