@@ -4,7 +4,16 @@ if(isset($_SESSION['admin_sid']) || isset($_SESSION['staff_sid']) || isset($_SES
 {
     #if the session is stablished
     #any attemp of going here will be redirected in index.php
-	header("location:../index.php");
+	#header("location:../index.php");
+    if(isset($_SESSION['admin_sid'])){
+        header("location:webadmin/adminpanel.php");
+    }elseif(isset($_SESSION['staff_sid'])){
+        header("location:webstaff/dashboard.php");
+    }elseif(isset($_SESSION['client_sid'])){
+        header("location:webclient/clientpanel.php");
+    }else{
+        header("location:../index.php");
+    }
 }
 else{
 ?>
