@@ -29,6 +29,7 @@ include '../includes/connectdb.php';
   <?php include 'modal_addservice.php' ?>
 
 
+
       <table class="m-5 md:mt-0 md:ml-56 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
@@ -36,6 +37,7 @@ include '../includes/connectdb.php';
             <th class="p-4">Description</th>
             <th class="p-4">Price</th>
             <th class="p-4">Action</th>
+
           </tr>
         <thead>
         <!---
@@ -52,17 +54,16 @@ include '../includes/connectdb.php';
           while($row = mysqli_fetch_array($servicequery)){
             
             echo '<tr>';
+
               echo   '<td class="bg-white top-0 p-2 text-bold">'.$row["serviceName"].'</td>';
               echo   '<td class="bg-white top-0 p-2">'.$row["serviceDesc"].'</td>';
               echo   '<td class="bg-white top-0 p-2">'.$row["servicePrice"].'</td>';
               echo   '<td class="bg-white top-0 p-2">';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">
+                echo '<a href="../crud/service_edit.php?id='.$row["servicesID"].'">Edit </a>';
                 <ion-icon name="create-outline"></ion-icon> </a>';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">
+                 echo '<a href="../crud/service_delete.php?servicesID='.$row['servicesID'].'">Delete </a>';
                 <ion-icon name="trash-outline"></ion-icon></a>';
-                
               echo '</td>';
-            
             echo '</tr>';
 
           }
