@@ -62,7 +62,6 @@ $now = new DateTime();
 	 <caption class="font-extrabold text-2xl">Upcoming Appointments</caption>
 	 <tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
 		 <th class="w-1/5  bg-white">Appointment ID</th>
-		 <th class="w-1/5  bg-white">Schedule</th>
 		 <th class="w-1/5  bg-white">Time</th>
 		 <th class="w-1/5  bg-white">Services</th>
 		 <th class="w-1/5  bg-white">Pet</th>
@@ -73,7 +72,6 @@ $now = new DateTime();
 		 if($row['dates']>$now){
 		 echo'<tr>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-			 echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
@@ -97,7 +95,6 @@ $now = new DateTime();
 	<caption class="font-extrabold text-2xl">Past Appointments</caption>
 	<tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
 		<th class="w-1/5  bg-white">Appointment ID</th>
-		<th class="w-1/5  bg-white">Schedule</th>
 		<th class="w-1/5  bg-white">Time</th>
 		<th class="w-1/5  bg-white">Services</th>
 		<th class="w-1/5  bg-white">Pet</th>
@@ -108,7 +105,7 @@ $now = new DateTime();
 		if($row['dates']<$now){
 		echo'<tr>';
 			echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-			echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
+
 			echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 			echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 			echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';

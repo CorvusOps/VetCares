@@ -7,15 +7,14 @@
             Business Time: 8:00 AM - 5:00 PM<br/>
             Monday - Friday
             </p>
-            <p class="text-center text-sm pr-10 pl-10"> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            <p class="text-center text-sm pr-10 pl-10">
+                At VetCares, we believe that because your pet is a valued member of your family, it should have the chance to live the happiest and healthiest life possible. Therefore, we have carefully selected a diverse staff of exceptionally trained veterinarians and veterinary nurses to provide them the finest in health care.
             </p>
         </div>
         <div class="grid place-items-center">
             <h2 class="font-bold text-xl pb-3">VISIT US</h2>
             <p class="text-center text-sm pb-2"><big>101 Anonas, Sta. Mesa, Manila </big><br/></p>
-            <p class="text-center text-sm">   
+            <p class="text-center text-sm">
                 <em>
                     Mobile: +63-912-356-7891<br/>
                     Telephone: (075)123-456 <br/>

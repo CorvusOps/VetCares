@@ -5,7 +5,7 @@ include '../includes/connectdb.php';
     $user = $_SESSION['user_id'];
     $sql = "SELECT user_firstname, user_lastname, contact_num, email, address FROM users WHERE userID='$user'";
     $result = $connectdb->query($sql);
-    
+
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,11 +25,11 @@ include '../includes/connectdb.php';
 
     <div class="grid place-items-center">
       <table class="m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 md:w-1/3 text-left border-collapse lg:ml-60 shadow-lg">
-       
+
         <tbody class="text-left">
-          <?php  
+          <?php
           if ($result->num_rows > 0) {
-  
+
               while($row = $result->fetch_assoc()) {
                 echo'<tr>';
                 echo '<th class="p-2 bg-white top-0">Name</th>';
@@ -37,17 +37,17 @@ include '../includes/connectdb.php';
                 echo'</tr>';
                 echo'<tr>';
                 echo '<th class="p-2 bg-white top-0">Address</th>';
-                echo'<td class="bg-white top-0 p-1">'.$row["contact_num"].'</td>';
+                echo'<td class="bg-white top-0 p-1">'.$row["address"].'</td>';
                 echo'</tr>';
                 echo'<tr>';
                 echo '<th class="p-2 bg-white top-0">Phone Number</th>';
-                echo'<td class="bg-white top-0 p-1">'.$row["email"].'</td>';
+                echo'<td class="bg-white top-0 p-1">'.$row["contact_num"].'</td>';
                 echo'</tr>';
                 echo'<tr>';
                 echo '<th class="p-2 bg-white top-0">Email</th>';
-                echo'<td class="bg-white top-0 p-1">'.$row["address"].'</td>';
-              }           
-                echo '</tr>';      
+                echo'<td class="bg-white top-0 p-1">'.$row["email"].'</td>';
+              }
+                echo '</tr>';
             ?>
         </tbody>
       </table>
@@ -73,4 +73,3 @@ include '../includes/connectdb.php';
 		}
 	}
 ?>
-
