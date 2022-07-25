@@ -1,7 +1,6 @@
 <?php
 include '../includes/connectdb.php';
 
-
 	if($_SESSION['staff_sid']==session_id())
 	{
 		?>
@@ -18,7 +17,7 @@ include '../includes/connectdb.php';
   <?php include 'sidebar.html' ?>
 
     <div class="grid place-items-center pt-5">
-        <h1 class="font-extrabold text-3xl text-center text-black">Pet Category</h1>
+        <h1 class="font-extrabold text-3xl text-center text-blue-900">SERVICES</h1>
     </div>
 
 
@@ -30,13 +29,13 @@ include '../includes/connectdb.php';
   <?php include 'modal_addservice.php' ?>
 
 
-      <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        <thead>
-          <tr class="border-2 border-blue-800">
-            <th class="w-2/5 border-2 border-blue-800">Service</th>
-            <th class="w-3/5 border-2 border-blue-800">Description</th>
-            <th class="w-1/5 border-2 border-blue-800">Price</th>
-            <th class="w-1 border-2 border-blue-800">Action</th>
+      <table class=" md:ml-56 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+        <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <tr class="">
+            <th class="p-4">Service</th>
+            <th class="p-4">Description</th>
+            <th class="p-4">Price</th>
+            <th class="p-4">Action</th>
           </tr>
         <thead>
         <!---
@@ -45,18 +44,22 @@ include '../includes/connectdb.php';
           <td class="border-2 border-blue-800">Our clinic offers physical examinations and diagnosis for your pets to ensure that their health are in good shape, or identify underlying conditions making your pets sick</td>
         </tr>
         --->
-        <tbody>
+        <tbody class="text-center">
           <?php
           $servicequery = mysqli_query($connectdb, "SELECT * FROM services");
+          if ($servicequery->num_rows > 0) {
+            // output data of each row
           while($row = mysqli_fetch_array($servicequery)){
             
             echo '<tr>';
-              echo   '<td class="border-2 border-blue-800 top-0">'.$row["serviceName"].'</td>';
-              echo   '<td class="border-2 border-blue-800">'.$row["serviceDesc"].'</td>';
-              echo   '<td class="border-2 border-blue-800">'.$row["servicePrice"].'</td>';
-              echo   '<td class="border-2 border-blue-800">';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">Edit</a>';
-                echo '<a href="edit.php>id='.$row["servicesID"].'">Delete</a>';
+              echo   '<td class="bg-white top-0 p-2 text-bold">'.$row["serviceName"].'</td>';
+              echo   '<td class="bg-white top-0 p-2">'.$row["serviceDesc"].'</td>';
+              echo   '<td class="bg-white top-0 p-2">'.$row["servicePrice"].'</td>';
+              echo   '<td class="bg-white top-0 p-2">';
+                echo '<a href="edit.php>id='.$row["servicesID"].'">
+                <ion-icon name="create-outline"></ion-icon> </a>';
+                echo '<a href="edit.php>id='.$row["servicesID"].'">
+                <ion-icon name="trash-outline"></ion-icon></a>';
                 
               echo '</td>';
             
@@ -77,6 +80,9 @@ include '../includes/connectdb.php';
   </body>
 </html>
 <?php
+} else {
+	echo "<center>No records found.</center>";
+}
 	}else
 	{
 		if($_SESSION['admin_sid']==session_id()){
