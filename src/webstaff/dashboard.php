@@ -1,7 +1,7 @@
 <?php
 include '../includes/connectdb.php';
 
-
+ $stat = "complete";
 	if($_SESSION['staff_sid']==session_id())
 	{
 		?>
@@ -23,7 +23,7 @@ include '../includes/connectdb.php';
             <p class="text-sm md:text-4xl absolute mt-0 top-0 p-2 w-10/12 md:text-3xl pl-3">Current Appointments</p>
             <br>
 						<?php
-						$result = mysqli_query($connectdb,"select count(1) FROM appointments");
+						$result = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE NOT status ='$stat';");
 						$row = mysqli_fetch_array($result);
 
 						$total = $row[0];
@@ -34,11 +34,10 @@ include '../includes/connectdb.php';
 
        <div class="md:mr-2 mt-20 lg:mr-20 mr-10 float-right w-1/3 mr-10">
 				 <?php
-				 $stat = "completed";
 				 $results = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE status ='$stat';");
-				 $row = mysqli_fetch_array($results);
+				 $row1 = mysqli_fetch_array($results);
 
-				 $totals = $row[0];
+				 $totals = $row1[0];
 				 ?>
          <div class="shadow-2xl h-20  sm:text-2xl text-2xl md:text-5xl w-full  bg-gradient-to-r from-blue-400 to-blue-500 border-b-0 border-blue-300 relative h-32 md:h-48  mt-12   md:pl-0  items-center md:justify-center text-white rounded">
            <p class="text-sm md:text-4xl absolute mt-0 top-0 p-2 w-10/12 md:text-3xl pl-3">Services Done</p>
@@ -68,7 +67,7 @@ include '../includes/connectdb.php';
 				while($row = $dateQuery->fetch_assoc()) {
 					echo'<tr>';
 						echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-						echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["dates"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
