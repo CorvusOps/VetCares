@@ -37,6 +37,7 @@ include '../includes/connectdb.php';
             <th class="w-1/5 p-2">Category ID</th>
             <th class="w-1/5 p-2">Pet Type</th>
             <th class="w-1/5 p-2">Date Created</th>
+            <th class="w-1/5 p-2">Action</th>
           </tr>
         </thead>
 
@@ -44,9 +45,15 @@ include '../includes/connectdb.php';
           <?php   
             while($row = $result->fetch_assoc()) {
               echo'<tr>';
-              echo'<td class=" bg-white top-0 p-1">'.$row["petcategoryID"].'</td>';
-              echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>';
-              echo'<td class="bg-white top-0 p-1">'.$row["date_created"].'</td>';
+                echo'<td class=" bg-white top-0 p-1">'.$row["petcategoryID"].'</td>';
+                echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>';
+                echo'<td class="bg-white top-0 p-1">'.$row["date_created"].'</td>';
+                echo   '<td class="bg-white top-0 p-2">';
+                echo '<a href="../crud/category_edit.php?id='.$row["petcategoryID"].'">
+                  <ion-icon name="create-outline"></ion-icon> </a>';
+                echo '<a href="../crud/category_delete.php?petcategoryID='.$row['petcategoryID'].'">
+                  <ion-icon name="trash-outline"></ion-icon></a>';
+                echo '</td>';
   }           echo '</tr>';      
 					?>
 
@@ -54,6 +61,8 @@ include '../includes/connectdb.php';
       </table>
 
       <script src="src/javascript/script.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
       <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 
   </body>
