@@ -38,7 +38,7 @@
       </div>
 
       <div class="bg-slate-100 mx-5"> <!--DIV for CONTACT FORM-->
-          <form class="rounded-lg px-4 m-5 p-5" action="#" method="post">
+          <form class="rounded-lg px-4 m-5 p-5" action="src/crud/insertInquiries.php" method="post">
               <div>
                   <label for="name">NAME</label>
                   <input 

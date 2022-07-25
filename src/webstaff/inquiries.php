@@ -1,9 +1,10 @@
 <?php
 include '../includes/connectdb.php';
-
-
 	if($_SESSION['staff_sid']==session_id())
 	{
+		$sql = "SELECT inquiryID, inquirerName, inquirerEmail, inquirerNumber, inquirerMessage FROM inquiries";
+		$result = $connectdb->query($sql);
+		
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,36 +12,62 @@ include '../includes/connectdb.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Inquiries</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'sidebar.html' ?>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        <caption class="font-extrabold text-2xl">Inquiries</caption>
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/5 border-2 border-blue-800">Name</th>
-          <th class="w-1/5 border-2 border-blue-800">Email</th>
-          <th class="w-1/5 border-2 border-blue-800">Question</th>
-        </tr>
-        <tr>
-          <td class="border-2 border-blue-800 top-0">MY N. AME</td>
-          <td class="border-2 border-blue-800">Myname@gmail.com</td>
-          <td class="border-2 border-blue-800 text-sm">What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-        </tr>
+    <div class="grid place-items-center pt-5">
+        <h1 class="font-extrabold text-3xl text-center text-blue-900">INQUIRIES</h1>
+    </div>
+      <table class="m-5 md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+        <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <tr class="">
+            <th class="p-4">id</th>
+            <th class="p-4">Inquirer Name</th>
+            <th class="p-4">Inquirer Email</th>
+            <th class="p-4">Inquirer Number</th>
+            <th class="p-4">Inquirer Message</th>
+            <th class="p-4">Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+        <?php   
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+            echo'<tr>';
+              echo'<td class="bg-white top-0 p-2">'.$row["inquiryID"].'</td>';
+              echo'<td class="bg-white top-0 p-2">'.$row["inquirerName"].'</td>';
+              echo'<td class="bg-white top-0 p-2">'.$row["inquirerEmail"].'</td>';
+              echo'<td class="bg-white top-0 p-2">'.$row["inquirerNumber"].'</td>';
+              echo'<td class="bg-white top-0 p-2">'.$row["inquirerMessage"].'</td>';
+              echo'<td class="bg-white top-0 p-2">
+                <a href="#"> <ion-icon name="trash-outline"></ion-icon> </a>
+                </td>';
+          }            
+            echo '</tr>';      
+        ?>
+        </tbody>
       </table>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
   </body>
 </html>
 <?php
+} else {
+	echo "<center>No records found.</center>";
+}
 	}else
 	{
-		if($_SESSION['admin_sid']==session_id()){
+		if($_SESSION['staff_sid']==session_id()){
 			header("location:404.php");
 		}
 		else{
-			if($_SESSION['client_sid']==session_id()){
+			if($_SESSION['customer_sid']==session_id()){
 				header("location:404.php");
 			}else{
 				header("location:login.php");
@@ -48,3 +75,4 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 		}
 	}
 ?>
+
