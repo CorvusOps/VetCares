@@ -35,7 +35,7 @@ include '../includes/connectdb.php';
           <?php   
             while($row = $result->fetch_assoc()) {
               echo'<tr>';
-              echo'<td class="border-2 border-blue-800 top-0">'.$row["user_firstname"].$row["user_lastname"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["user_firstname"].'&nbsp;'.$row["user_lastname"].'</td>';
               echo'<td class="border-2 border-blue-800 top-0">'.$row["contact_num"].'</td>';
               echo'<td class="border-2 border-blue-800 top-0">'.$row["email"].'</td>';
               echo'<td class="border-2 border-blue-800 top-0">'.$row["address"].'</td>';
