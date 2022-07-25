@@ -20,15 +20,16 @@ include '../includes/connectdb.php';
   <?php include 'sidebar.html' ?>
   
     <div class="grid place-items-center pt-5">
-       <h1 class="font-extrabold text-3xl text-center text-black">Pet Category</h1>
+       <h1 class="font-extrabold text-3xl text-center  text-blue-900">PET CATEGORY</h1>
     </div>
 
     <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
       <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
               Create New Category
       </button>
-
     </div>
+
+    <?php include 'modal_addcategory.php' ?>
       
     <table class=" m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
@@ -53,6 +54,7 @@ include '../includes/connectdb.php';
       </table>
 
       <script src="src/javascript/script.js"></script>
+      <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 
   </body>
 </html>
