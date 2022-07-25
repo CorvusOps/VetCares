@@ -19,9 +19,18 @@ include '../includes/connectdb.php';
 
   <?php include 'sidebar.html' ?>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        <caption class="font-extrabold text-2xl">Clients</caption>
-        <thead>
+    <div class="grid place-items-center pt-5">
+        <h1 class="font-extrabold text-3xl text-center text-black">Pet Category</h1>
+      </div>
+
+      <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
+        <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
+                Add Client
+        </button>
+      </div>
+
+      <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
+       
           <tr class="border-2 border-blue-800">
             <th class="w-1/5 border-2 border-blue-800">Name</th>
             <th class="w-1/5 border-2 border-blue-800">Contact Number</th>
