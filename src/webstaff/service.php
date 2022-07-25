@@ -59,9 +59,9 @@ include '../includes/connectdb.php';
               echo   '<td class="bg-white top-0 p-2">'.$row["serviceDesc"].'</td>';
               echo   '<td class="bg-white top-0 p-2">'.$row["servicePrice"].'</td>';
               echo   '<td class="bg-white top-0 p-2">';
-                echo '<a href="../crud/service_edit.php?id='.$row["servicesID"].'">Edit </a>';
+                echo '<a href="../crud/service_edit.php?id='.$row["servicesID"].'">
                 <ion-icon name="create-outline"></ion-icon> </a>';
-                 echo '<a href="../crud/service_delete.php?servicesID='.$row['servicesID'].'">Delete </a>';
+                 echo '<a href="../crud/service_delete.php?servicesID='.$row['servicesID'].'">
                 <ion-icon name="trash-outline"></ion-icon></a>';
               echo '</td>';
             echo '</tr>';
