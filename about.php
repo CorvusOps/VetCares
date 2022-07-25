@@ -21,22 +21,22 @@
       </div>
     </div>
     <div class="w-full h-full">
-        <h1 class="font-body  pt-5 text-4xl flex items-center justify-center text-gray-800">VetCares</h1>
+        <h1 class="font-body pt-5 text-4xl flex items-center justify-center text-gray-800">VetCares</h1>
       <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
-        <p class="p-10 w-[1000px]">VetCares is a veterinary clinic that aims to give
-          the best services to pets everywhere we provide a
-          range of services that can assess your pet's health
-          such as Examinations and Diagnosis, Endoscopy, Laboratory,
-          and Pharmacy services. Futhermore, our clinic is attended by two
-          professional veterinaries that will give the best services for your
-          beloved pet. With the current pandemic protocols our clinic schedules
-          appointments accordingly, our clinic also observes proper procedures
+        <p class="p-5 w-[1000px] text-center">
+          VetCares is a veterinary clinic that aims to give
+          the best services to pets everywhere with our wide
+          range of services including grooming and assessing your pet's health
+          through <strong>Examinations and Diagnosis, Endoscopy, Laboratory,
+          </strong> and <strong> Pharmacy services</strong>. Futhermore, our clinic is attended by
+          professional veterinarians with great expertise to only give the best treatment to your pets. With the current pandemic protocols, our clinic schedules
+          appointments accordingly. We also observe proper procedures
           when handling the transactions in a face to face manner. We hope that
-          you will abide with these procedures once you will attend to our services,
-          we are looking forward to be working with you.We are located at 101 Anonas,Sta. Mesa, Manila. For further inquiries
-          you can reach us with the following contact details: Mobile: +63-912-356-7891
-          Telephone: (075)123-456
-          vetcares@care4pets.com </p>
+          you will abide with these procedures upon claiming our services.
+          We absolutely love and are looking forward to work with you! We are located at 101 Anonas, Sta. Mesa, Manila. <br/>For further inquiries
+          you can reach us with the following contact details: <br/> Mobile: <strong>+63-912-356-7891 </strong>| 
+          Telephone: <strong>(075)123-456</strong> |
+          <strong>vetcares@care4pets.com</strong></p>
       </div>
       <div class="">
           <div class="w-full h-full flex items-center justify-center leading-10 text-justify">
@@ -60,7 +60,9 @@
     </div>
     <!--FOOTER-->
     <?php include 'src/includes/footer.php';?>
-
+    
+    <!--JAVASCRIPT FILES-->
+    <script src="src/javascript/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 

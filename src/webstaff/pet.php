@@ -18,9 +18,21 @@ include '../includes/connectdb.php';
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'sidebar.html' ?>
+  
+    <div class="grid place-items-center pt-5">
+       <h1 class="font-extrabold text-3xl text-center text-black">Pet Category</h1>
+    </div>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        <caption class="font-extrabold text-2xl">Pet Categories</caption>
+    <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
+      <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
+              Create New Category
+      </button>
+
+    </div>
+
+
+      <table class="border-2 border-blue-800 m-auto md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
+        
         <thead>
           <tr class="border-2 border-blue-800">
             <th class="w-1/5 border-2 border-blue-800">Category ID</th>
@@ -41,6 +53,9 @@ include '../includes/connectdb.php';
 
         </tbody>
       </table>
+
+      <script src="src/javascript/script.js"></script>
+
   </body>
 </html>
 <?php
