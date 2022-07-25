@@ -1,9 +1,11 @@
 <?php
 include '../includes/connectdb.php';
-
-
 	if($_SESSION['client_sid']==session_id())
 	{
+    $user = $_SESSION['user_id'];
+    $sql = "SELECT pet_recordID, petName, petAge, petCategoryID FROM pet WHERE petUserID='$user'";
+    $result = $connectdb->query($sql);
+    
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,37 +21,44 @@ include '../includes/connectdb.php';
 
   <h1 class="md:ml-16 m-auto text-4xl text-white font-bold justify-center mt-10 text-center">Pets' Information</h1>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
+      <table class="border-2 border-blue-800 m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
 
         <tr class="border-2 border-blue-800">
-          <th class="w-1/5 border-2 border-blue-800">Pet's Name</th>
-          <th class="w-1/5 border-2 border-blue-800">Owner</th>
-          <th class="w-1/5 border-2 border-blue-800">Age</th>
+          <th class="w-1/5 border-2 border-blue-800">Pet ID</th>
+          <th class="w-1/5 border-2 border-blue-800">Pet Name</th>
+          <th class="w-1/5 border-2 border-blue-800">Pet Age</th>
           <th class="w-1/5 border-2 border-blue-800">Pet Type</th>
-          <th class="w-1/5 border-2 border-blue-800">Breed</th>
-          <th class="w-1/5 border-2 border-blue-800">Veterinary</th>
+
         </tr>
-        <tr>
-          <td class="border-2 border-blue-800">Doggy</td>
-          <td class="border-2 border-blue-800">Own</td>
-          <td class="border-2 border-blue-800">2 years old</td>
-          <td class="border-2 border-blue-800">Doge</td>
-          <td class="border-2 border-blue-800">German Shepherd</td>
-          <td class="border-2 border-blue-800">Dr. Doge</td>
-        </tr>
+        <?php  
+          if ($result->num_rows > 0) {
+ 
+            while($row = $result->fetch_assoc()) {
+              echo'<tr>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["pet_recordID"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["petName"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["petAge"].'</td>';
+              echo'<td class="border-2 border-blue-800 top-0">'.$row["petCategoryID"].'</td>'; 
+                              //put relation to display category instead than category id
+            }           
+              echo '</tr>';      
+				  ?>
       </table>
 
   </body>
 </html>
 <?php
-    }else
+} else {
+  echo "<center>No records found.</center>";
+}
+	}else
 	{
 		if($_SESSION['admin_sid']==session_id()){
-			header("location:404.php");		
+			header("location:404.php");
 		}
 		else{
-			if($_SESSION['staff_sid']==session_id()){
-				header("location:404.php");		
+			if($_SESSION['client_sid']==session_id()){
+				header("location:404.php");
 			}else{
 				header("location:login.php");
 			}
