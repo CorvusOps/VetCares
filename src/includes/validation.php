@@ -8,7 +8,7 @@ $password = $_POST['password'];
 $result = mysqli_query($connectdb, "SELECT * FROM users WHERE username='$username' AND password='$password' AND user_level='0';");
 while($row = mysqli_fetch_array($result)){   
 	$success = true;
-	$userID = $row['userID'];
+	$user_id = $row['userID'];
 	$user_firstname = $row['user_firstname'];
 	$user_level = $row['user_level'];
 }	
@@ -26,7 +26,7 @@ if($success == true){
 	while($row = mysqli_fetch_array($result))
 	{
 	$success = true;
-	$userID = $row['userID'];
+	$user_id = $row['userID'];
 	$user_firstname = $row['user_firstname'];
 	$user_level= $row['user_level'];
 	}
@@ -44,7 +44,7 @@ if($success == true){
         while($row = mysqli_fetch_array($result))
         {
         $success = true;
-        $userID = $row['userID'];
+        $user_id = $row['userID'];
         $user_firstname = $row['user_firstname'];
         $user_level= $row['user_level'];
         }
