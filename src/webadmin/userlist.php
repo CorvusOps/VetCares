@@ -2,7 +2,7 @@
 include '../includes/connectdb.php';
 	if($_SESSION['admin_sid']==session_id())
 	{
-		$sql = "SELECT username, password, user_level FROM users";
+		$sql = "SELECT userID, username, password, user_level FROM users";
 		$result = $connectdb->query($sql);
 		
 		?>
@@ -24,6 +24,7 @@ include '../includes/connectdb.php';
     <table class="m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
 		<thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
 			<tr class="">
+				<th class="w-1/5 p-2">ID</th>
 				<th class="w-1/5 p-2">User</th>
 				<th class="w-1/5 p-2">Password</th>
 				<th class="w-1/5 p-2">Account Level</th>
@@ -36,13 +37,16 @@ include '../includes/connectdb.php';
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo'<tr>';
+					echo'<td class="bg-white top-0 p-1">'.$row["userID"].'</td>';
 					echo'<td class="bg-white top-0 p-1">'.$row["username"].'</td>';
 					echo'<td class="bg-white top-0 p-1">'.$row["password"].'</td>';
 					echo'<td class="bg-white top-0 p-1">'.$row["user_level"].'</td>';
-					echo'<td class="bg-white top-0 p-1">
-						<a href="#"> <ion-icon name="create-outline"></ion-icon> </a> &nbsp
-						<a href="#"> <ion-icon name="trash-outline"></ion-icon> </a>
-						</td>';
+					echo'<td class="bg-white top-0 p-2">';
+					echo '<a href="../crud/userlist_edit.php?id='.$row["userID"].'">
+						<ion-icon name="create-outline"></ion-icon> </a>';
+					echo '<a href="../crud/userlist_delete.php?userID='.$row['userID'].'">
+						<ion-icon name="trash-outline"></ion-icon></a>';
+					echo'</td>';
 			}            
 				echo '</tr>';      
 		?>
