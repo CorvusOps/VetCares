@@ -7,11 +7,11 @@ $lname = $_POST['lname'];
 $level = $_POST['level'];
 
 $sql = "INSERT INTO users (user_firstname,user_lastname,username, password,user_level)
-VALUES ('fname','lname','$userq', '$passq','level');";
+VALUES ('$fname','$lname','$userq', '$passq', $level);";
 $result = $connectdb->query($sql);
 
 if($result){
-  header('Location: http://localhost/clone/VetCares/src/webadmin/adminpanel.php');
+  header('Location: adminpanel.php');
 }else{
   echo "failed";
   die();

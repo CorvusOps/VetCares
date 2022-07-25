@@ -32,9 +32,9 @@ include '../includes/connectdb.php';
             <input type="password" name="pass" placeholder="Password" class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black pl-2"><br>
 						<br><label for="level" class="font-bold">User Level</label>
 						<select class="ml-0.5 bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="level">
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
+							<option value="0">[0]admin</option>
+							<option value="1">[1]staff</option>
+							<option value="2" selected>[2]client</option>
 						</select>
 
             <br><button type="submit" name="button1" formaction="useradd.php" class="mt-5 border-black border-2 p-2 rounded-md">Add User</button>
