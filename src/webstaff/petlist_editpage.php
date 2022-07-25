@@ -89,7 +89,7 @@ if($_SESSION['staff_sid']==session_id())
                         </select>
       </div>
       <button type="submit" formaction="../crud/petlist_update.php" name="button" class="mt-5 border-green-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Update Pet Information</button>
-      <a href="service.php" name="button" class="mt-5 border-red-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Cancel</a>
+      <a href="petLists.php" name="button" class="mt-5 border-red-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Cancel</a>
     </form>
 
   </body>
