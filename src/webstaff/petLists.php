@@ -24,7 +24,13 @@ if($_SESSION['staff_sid']==session_id())
        <h1 class="font-extrabold text-3xl text-center text-blue-900">PETS</h1>
     </div>
 
-      <table class="m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+    <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
+      <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 px-5 text-center " type="button" data-modal-toggle="new-category">
+              Add a Pet
+      </button>
+    </div>
+
+      <table class="m-auto md:mt-2 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
             <th class="w-1/5 p-2">Pet ID</th>
@@ -56,9 +62,12 @@ if($_SESSION['staff_sid']==session_id())
             ?>
           </tbody>
         </table>
+        
+    <?php include 'modal_addpet.php' ?>
 
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
       
   </body>
 </html>
