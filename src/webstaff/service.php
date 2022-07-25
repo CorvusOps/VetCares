@@ -29,7 +29,7 @@ include '../includes/connectdb.php';
   <?php include 'modal_addservice.php' ?>
 
 
-      <table class=" md:ml-56 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+      <table class="m-5 md:mt-0 md:ml-56 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
             <th class="p-4">Service</th>
