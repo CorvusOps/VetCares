@@ -1,9 +1,14 @@
 <?php
 include '../includes/connectdb.php';
-
-
 	if($_SESSION['client_sid']==session_id())
 	{
+    $user = $_SESSION['user_id'];
+    $sql = "SELECT p.pet_recordID, r.petID, p.petName, r.serviceID, s.servicesID, s.serviceName, r.dateRecorded, r.prescription, r.VetDoc
+            FROM records AS r
+            LEFT JOIN services AS s ON r.serviceID=s.servicesID
+            LEFT JOIN pet AS p ON p.pet_recordID=r.petID
+            WHERE petUserID='$user'";
+    $result = $connectdb->query($sql);
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,31 +22,50 @@ include '../includes/connectdb.php';
 
   <?php include 'clientsidebar.html' ?>
 
-  <h1 class="md:ml-16 m-auto text-4xl text-white font-bold justify-center mt-10 text-center">Past Records</h1>
+  <div class="grid place-items-center pt-5">
+       <h1 class="font-extrabold text-3xl text-center text-blue-900">PAST RECORDS</h1>
+    </div>
 
-      <table class="border-2 border-blue-800 m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-        <caption class="font-extrabold text-2xl">Past Appointments</caption>
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/5 border-2 border-blue-800">Pet</th>
-          <th class="w-1/5 border-2 border-blue-800">Date</th>
-          <th class="w-1/5 border-2 border-blue-800">Time</th>
-          <th class="w-1/5 border-2 border-blue-800">Service Needed</th>
-          <th class="w-1/5 border-2 border-blue-800">Pet</th>
-          <th class="w-1/5 border-2 border-blue-800">Veterinary</th>
-        </tr>
-        <tr>
-          <td class="border-2 border-blue-800">Doggy</td>
-          <td class="border-2 border-blue-800">15/07/2022</td>
-          <td class="border-2 border-blue-800">7:00 am</td>
-          <td class="border-2 border-blue-800">Endoscopy</td>
-          <td class="border-2 border-blue-800">Dog</td>
-          <td class="border-2 border-blue-800">Dr. Doge</td>
-        </tr>
+      <table class="m-auto md:mt-10 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
+        <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <tr class="">
+            <th class="p-2">Pet ID</th>
+            <th class="p-2">Pet Name</th>
+            <th class="p-2">Service ID</th>
+            <th class="p-2">Service Name</th>
+            <th class="p-2">Prescription</th>
+            <th class="p-2">Veterinarian</th>
+            <th class="p-2">Date</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+        <?php  
+            if ($result->num_rows > 0) {
+  
+              while($row = $result->fetch_assoc()) {
+                echo'<tr>';
+                  echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+                  echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
+                  echo'<td class="bg-white top-0 p-1">'.$row["serviceID"].'</td>';
+                  echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>'; 
+                  echo'<td class="bg-white top-0 p-1">'.$row["prescription"].'</td>'; 
+                  echo'<td class="bg-white top-0 p-1">'.$row["VetDoc"].'</td>'; 
+                  echo'<td class="bg-white top-0 p-1">'.$row["dateRecorded"].'</td>'; 
+                  echo'<td class="bg-white top-0 p-1">
+						        <a href="#"> <ion-icon name="create-outline"></ion-icon></a>
+                    </td>';
+              }           
+                echo '</tr>';      
+            ?>
+        </tbody>
       </table>
 
   </body>
 </html>
 <?php
+} else {
+  echo "<center>No records found.</center>";
+}
     }else
 	{
 		if($_SESSION['admin_sid']==session_id()){
