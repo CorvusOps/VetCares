@@ -1,4 +1,4 @@
-<?php echo '
+
 <div class="bg-gray-500 text-sm text-white shadow grid place-content-end pr-5">
 
 <button class="block text-white bg-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-1 text-center " type="button" data-modal-toggle="authentication-modal">
@@ -231,4 +231,4 @@
         </div>
     </nav>
 </div>
-'?>
+
