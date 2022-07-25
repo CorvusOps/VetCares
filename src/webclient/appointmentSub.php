@@ -13,14 +13,14 @@ $success = "";
   $result = $connectdb->query($forid);
   if($row=$result->fetch_assoc())
   {
-    $_SESSION['petTemp'] = $row['petID'];
+    $_SESSION['petTemp'] = $row['petID'] + 1;
   }
 
   $forids = "SELECT * FROM appointments ORDER BY servicesID DESC LIMIT 1";
   $result1 = $connectdb->query($forids);
   if($rows=$result1->fetch_assoc())
   {
-    $_SESSION['servicesTemp'] =  $row['servicesID'];
+    $_SESSION['servicesTemp'] =  $row['servicesID'] + 1;
   }
 
 
