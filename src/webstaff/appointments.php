@@ -40,7 +40,7 @@ include '../includes/connectdb.php';
 				while($row = $dateQuery->fetch_assoc()) {
 					echo'<tr>';
 						echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-						echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["dates"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';

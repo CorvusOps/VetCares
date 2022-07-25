@@ -29,7 +29,7 @@ if(isset($_SESSION['servicesTemp'])&& isset($_SESSION['petTemp'])){
   $serviceid = $_SESSION['servicesTemp'];
   $idq = $_SESSION['user_id'];
   $sql = "INSERT INTO `appointments`( `contact`, `email`, `dates`, `status`, `time`, `petID`, `servicesID`, `userID`)
-  VALUES ('$contact','$email','$date','status','$time','$petid','$serviceid','$idq');";
+  VALUES ('$contact','$email','$date','$status','$time','$petid','$serviceid','$idq');";
   if($results = $connectdb->query($sql)){
     echo "<script>
     alert('Appointment Requested Successfully');
