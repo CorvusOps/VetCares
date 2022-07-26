@@ -45,32 +45,35 @@ include '../includes/connectdb.php';
         </div>
       </div>
 
-      <table class="border-2 border-blue-800 mt-20 md:mt-24 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 ">
-        <tr class="border-2 border-blue-800">
-          <th class="w-1/12 border-2 border-blue-800">Patient</th>
-          <th class="w-1/12 border-2 border-blue-800">Date</th>
-          <th class="w-1/12 border-2 border-blue-800">Time</th>
-          <th class="w-1/12 border-2 border-blue-800">Service Done</th>
-          <th class="w-1/12 border-2 border-blue-800">Pet</th>
-          <th class="w-1/12 border-2 border-blue-800">Veterinary</th>
-          <th class="w-1/12 border-2 border-blue-800">Status</th>
-        </tr>
-        <tr>
-          <td class="border-2 border-blue-800">Pt1</td>
-          <td class="border-2 border-blue-800">15/07/2022</td>
-          <td class="border-2 border-blue-800">7:00 am</td>
-          <td class="border-2 border-blue-800">Endoscopy</td>
-          <td class="border-2 border-blue-800">Dog</td>
-          <td class="border-2 border-blue-800">Dr.Doge</td>
-          <td class="border-2 border-blue-800">
-              <select class="border-blue-800 bg-blue-200 md:bg-blue-300">
-                <option value="pending">Pending</option>
-                <option value="accepted">Approved</option>
-                <option value="successful">Complete</option>
-                  <option value="successful">Reject</option>
-               </select>
-          </td>
-        </tr>
+      <table class="mt-20 md:mt-24 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 ">
+				<?php
+
+				 $Query = mysqli_query($connectdb,"SELECT * FROM records;");
+				 ?>
+				 <tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
+			 		<th class="w-1/5  bg-white">Record ID</th>
+			 		<th class="w-1/5  bg-white">Date Recorded</th>
+			 		<th class="w-1/5  bg-white">Pet ID</th>
+			 		<th class="w-1/5  bg-white">Services ID</th>
+			 		<th class="w-1/5  bg-white">Prescription</th>
+			 		<th class="w-1/5  bg-white">Veterinary</th>
+
+
+			 	</tr>
+				<?php
+				while($row = $Query->fetch_assoc()) {
+					echo'<tr>';
+						echo'<td class="bg-white top-0 p-1">'.$row["recordID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["dateRecorded"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["serviceID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["prescription"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["VetDoc"].'</td>';
+
+
+				}
+					echo '</tr>';
+				 ?>
       </table>
 
 
