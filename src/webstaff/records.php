@@ -16,50 +16,35 @@ include '../includes/connectdb.php';
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
   <?php include 'sidebar.html' ?>
-      <h1 class="m-auto text-4xl font-extrabold justify-center mt-5 text-center">Records</h1>
-      <div class="">
-        <div class=" ml-20 mt-20 md:mt-20 md:ml-60 md:mr-4 w-full h-60">
-          <form class="" action="index.html" method="post">
-            <label for="patient" class="font-bold w-2">Patient ID</label>
-            <input type="text" name="patient" placeholder="Patient ex.(Pt1)" class="bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
 
-            <br><label for="date" class="font-bold">Date</label>
-            <input type="text" name="date" placeholder="Date" class="ml-10 bg-blue-200 md:bg-blue-300 border-b-2 border-black"><br>
+    <div class="grid place-items-center pt-5">
+        <h1 class="font-extrabold text-3xl text-center  text-blue-900">RECORDS</h1>
+    </div>
 
-            <label for="time" class="font-bold w-1/12">Time</label>
-            <input type="text" name="time" placeholder="Time" class="ml-10 bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
+    <div class="grid md:place-items-start place-items-center md:ml-60 py-3">
+      <button class=" block text-black hover:text-white bg-white hover:bg-gray-700 font-medium rounded-lg text-base p-2 text-center " type="button" data-modal-toggle="new-category">
+              Add New Record
+      </button>
+    </div>
 
-            <br><label for="service" class="font-bold w-1/12">Service</label>
-            <input type="text" name="service" placeholder="Services Done" class="ml-5 bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
+    <?php include 'modal_addrecord.php' ?>
 
-            <br><label for="pet" class="font-bold w-1/12">Pet</label>
-            <input type="text" name="pet" placeholder="Pet Category" class="ml-12 bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
-
-            <br><label for="vet" class="font-bold w-1/12">Vet</label>
-            <input type="text" name="vet" placeholder="Veterinary's Name" class="ml-12 bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
-
-            <br><button type="submit" name="button" class="mt-5 border-black border-2 p-2 rounded-md">Add Record</button>
-            <button type="submit" name="button" class="mt-5 border-black border-2 p-2 rounded-md">Update Record</button>
-            <button type="submit" name="button" class="mt-5 border-black border-2 p-2 rounded-md">Delete Record</button>
-          </form>
-        </div>
-      </div>
-
-      <table class="mt-20 md:mt-24 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 ">
+      <table class="m-5 md:mt-2 md:ml-56 md:mr-4 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg ">
 				<?php
 
 				 $Query = mysqli_query($connectdb,"SELECT * FROM records;");
 				 ?>
-				 <tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
-			 		<th class="w-1/5  bg-white">Record ID</th>
-			 		<th class="w-1/5  bg-white">Date Recorded</th>
-			 		<th class="w-1/5  bg-white">Pet ID</th>
-			 		<th class="w-1/5  bg-white">Services ID</th>
-			 		<th class="w-1/5  bg-white">Prescription</th>
-			 		<th class="w-1/5  bg-white">Veterinary</th>
-
-
-			 	</tr>
+         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <tr class="">
+            <th class="p-2">Record ID</th>
+            <th class="p-2">Date Recorded</th>
+            <th class="p-2">Pet ID</th>
+            <th class="p-2">Services ID</th>
+            <th class="p-2">Prescription</th>
+            <th class="p-2">Veterinary</th>
+            <th class="p-2">Action</th>
+          </tr>
+        </head>
 				<?php
 				while($row = $Query->fetch_assoc()) {
 					echo'<tr>';
@@ -69,14 +54,19 @@ include '../includes/connectdb.php';
 						echo'<td class="bg-white top-0 p-1">'.$row["serviceID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["prescription"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["VetDoc"].'</td>';
+            echo'<td class="bg-white top-0 p-2">';
+            echo '<a href="../crud/records_delete.php?recordID='.$row['recordID'].'">
+                <ion-icon name="trash-outline"></ion-icon></a>';
+            echo '</td>';
 
 
 				}
 					echo '</tr>';
 				 ?>
       </table>
-
-
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
   </body>
 </html>
 <?php
