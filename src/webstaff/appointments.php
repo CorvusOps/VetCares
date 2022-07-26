@@ -24,7 +24,7 @@ include '../includes/connectdb.php';
 		<table class="m-auto md:mt-5 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
 		 <?php
 			$date = date("Y-m-d");
-			$dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID, a.schedule, a.time, a.servicesID, a.petID, p.pet_recordID,
+			$dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
 									p.petName, s.servicesID, s.serviceName, a.status FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
 									LEFT JOIN services AS s ON a.servicesID=s.servicesID;");
 			?>
@@ -45,7 +45,7 @@ include '../includes/connectdb.php';
 				while($row = $dateQuery->fetch_assoc()) {
 					echo'<tr>';
 						echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-						echo'<td class="bg-white top-0 p-1">'.$row["schedule"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["dates"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
