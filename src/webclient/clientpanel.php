@@ -1,7 +1,7 @@
 <?php
 include '../includes/connectdb.php';
 
-$sub = $_SESSION['user_id'];
+  $sub = $_SESSION['user_id'];
 	if($_SESSION['client_sid']==session_id())
 	{
 		?>
@@ -24,9 +24,9 @@ $sub = $_SESSION['user_id'];
             <br>
 						<?php
 						 $sub = $_SESSION['user_id'];
-						 $results = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE userID ='$sub';");
+						 $results = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE userID ='$sub'");
 						 $row = mysqli_fetch_array($results);
-					 	$total = $row[0];
+					 	 $total = $row[0];
 						 ?>
             <p class="text-sm md:text-3xl top-8 p-4 md:top-20 absolute"><?php echo  $total;  ?></p>
           </div>
@@ -49,15 +49,7 @@ $sub = $_SESSION['user_id'];
 
  </div>
  <table class=" m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
-<?php
- $date = date("Y-m-d");
 
-
-$now = new DateTime();
-
- $dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments WHERE dates ='$date' and userID = '$sub';");
-
- ?>
 
 	 <caption class="font-extrabold text-2xl">Upcoming Appointments</caption>
 	 <tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
@@ -68,27 +60,35 @@ $now = new DateTime();
 
 	 </tr>
 	 <?php
-	 while($row = $dateQuery->fetch_assoc()) {
-		 if($row['dates']>$now){
+	 $date = date("Y-m-d");
+   $now = new DateTime();
+   $dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments WHERE userID = '$sub';");
+
+
+	 while($row = mysqli_fetch_array($dateQuery)) {
+		 $temp1 = $row['dates'];
+		 $test1 = new DateTime("$temp1");
+		 if($test1>$now){
 		 echo'<tr>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 			 echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+			  echo '</tr>';
 		 }
 	 }
-		 echo '</tr>';
+
 		?>
  </table>
 
  <table class=" m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
 <?php
- $date = date("Y-m-d");
+ $date1 = date("Y-m-d");
 
 
-$now = new DateTime();
+$now1 = new DateTime();
 
- $dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments WHERE dates ='$date' and userID = '$sub';");
+ $dateQuery1 = mysqli_query($connectdb,"SELECT * FROM appointments WHERE userID = '$sub';");
 
  ?>
 
@@ -101,17 +101,21 @@ $now = new DateTime();
 
 	</tr>
 	<?php
-	while($row = $dateQuery->fetch_assoc()) {
-		if($row['dates']<$now){
+	while($row = $dateQuery1->fetch_assoc()) {
+		$temp = $row['dates'];
+		$test = new DateTime("$temp");
+		if($test<$now1){
 		echo'<tr>';
 			echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-
 			echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
 			echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
 			echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+			echo '</tr>';
+		}else{
+
 		}
 	}
-		echo '</tr>';
+
 	 ?>
  </table>
 
