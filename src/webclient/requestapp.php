@@ -1,9 +1,8 @@
 <?php
 include '../includes/connectdb.php';
-
-
 	if($_SESSION['client_sid']==session_id())
 	{
+    $user = $_SESSION['user_id'];
 		?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -38,21 +37,26 @@ include '../includes/connectdb.php';
               <div class="my-2">
                 <label for="pet" class="font-bold w-1/12">Pet Name</label>
                 <select class=" bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="pet">
-                  <option selected>Select a Pet Type</option>
-                  <option value="">Dog</option>
-                  <option value="">Cat</option>
-                  <option value="">Hamster</option> <!--Temporary placeholder; might just retrieve from database-->
+                  <?php
+                      $sql = "SELECT pet_recordID, petName FROM pet WHERE petUserID=$user";
+                      $result = $connectdb->query($sql);
+                      while($row = $result->fetch_assoc()) {
+                        echo"<option value=$row[pet_recordID]>$row[petName]</option>";
+                      }
+                  ?>
                 </select>
               </div>
 
               <div class="my-2">
                 <label for="service" class="font-bold w-1/12">Service(s)</label>
                 <select class=" bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="service">
-                  <option value="">Examinations and Diagnosis</option>
-                  <option value="">Endoscopy</option>
-                  <option value="">Laboratory</option>
-                  <option value="">Pharmacy</option>
-                  <option value="">Health Certificates</option>
+                <?php
+                    $sql = "SELECT servicesID, serviceName FROM services";
+                    $result = $connectdb->query($sql);
+                    while($row = $result->fetch_assoc()) {
+                      echo"<option value=$row[servicesID]>$row[serviceName]</option>";
+                    }
+                ?>
                 </select>
               </div>
 
