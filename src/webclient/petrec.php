@@ -46,7 +46,7 @@ include '../includes/connectdb.php';
                   echo'<td class="bg-white top-0 p-1">'.$row["petAge"].'</td>';
                   echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>'; 
                   echo'<td class="bg-white top-0 p-1">
-						        <a href="#"> <ion-icon name="create-outline"></ion-icon></a>
+                  <a href="pet_editpage.php?pet_recordID='.$row["pet_recordID"].'"><ion-icon name="create-outline"></ion-icon></a>
                     </td>';
                                 //put relation to display category instead than category id
               }           
