@@ -51,26 +51,28 @@ include '../includes/connectdb.php';
       <table class=" m-auto md:mt-20 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60">
      <?php
 		 	$date = date("Y-m-d");
-   	  $dateQuery = mysqli_query($connectdb,"SELECT * FROM appointments WHERE dates ='$date';");
+   	  $dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
+		 p.petName, s.servicesID, s.serviceName, a.status, a.userID FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
+		 LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE dates ='$date';");
 		  ?>
 
         <caption class="font-extrabold text-2xl">Today's Appointments</caption>
-        <tr class="bg-gray-100 border-b-2 border-gray-200 text-left p-2">
-          <th class="w-1/5  bg-white">Appointment ID</th>
-          <th class="w-1/5  bg-white">Date</th>
-          <th class="w-1/5  bg-white">Time</th>
-          <th class="w-1/5  bg-white">Services ID</th>
-          <th class="w-1/5  bg-white">Pet ID</th>
+        <tr class="bg-gray-100 border-b-2 border-gray-200 text-center p-2">
+          <th class="w-1/5">Appointment ID</th>
+          <th class="w-1/5">Date</th>
+          <th class="w-1/5">Time</th>
+          <th class="w-1/5">Service Name</th>
+          <th class="w-1/5">Pet Name</th>
 
         </tr>
 				<?php
 				while($row = $dateQuery->fetch_assoc()) {
-					echo'<tr>';
+					echo'<tr class="text-center">';
 						echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["dates"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
-						echo'<td class="bg-white top-0 p-1">'.$row["servicesID"].'</td>';
-						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
+						echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
 
 				}
 					echo '</tr>';
