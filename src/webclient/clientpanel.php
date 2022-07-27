@@ -18,9 +18,9 @@ include '../includes/connectdb.php';
   <?php include 'clientsidebar.html' ?>
 
   <h1 class="md:ml-16 m-auto text-4xl text-blue-900 font-bold justify-center mt-10 text-center">DASHBOARD</h1>
-        <div class="ml-10 mt-2 sm:ml-50 md:ml-60 float-left w-1/3 ">
+        <div class="ml-10 sm:ml-50 md:ml-60 float-left w-1/3 ">
           <div class="shadow-2xl h-20  sm:text-2xl text-2xl md:text-5xl w-full  bg-gradient-to-r from-blue-400 to-blue-500 border-b-0 border-blue-300 relative h-32 md:h-48  mt-12   md:pl-0  items-center md:justify-center text-white rounded">
-            <p class="text-sm md:text-4xl absolute mt-0 top-0 p-2 w-10/12 md:text-3xl pl-3">Appointments Done</p>
+            <p class="text-sm md:text-4xl absolute mt-0 p-2 w-10/12 md:text-3xl pl-3">Appointments Done</p>
             <br>
 						<?php
 						 $sub = $_SESSION['user_id'];
@@ -28,20 +28,20 @@ include '../includes/connectdb.php';
 						 $row = mysqli_fetch_array($results);
 					 	 $total = $row[0];
 						 ?>
-            <p class="text-sm md:text-3xl top-8 p-4 md:top-20 absolute"><?php echo  $total;  ?></p>
+            <p class="text-sm md:text-3xl p-4 md0 absolute"><?php echo  $total;  ?></p>
           </div>
        </div>
 
-       <div class="md:mr-2 mt-2 lg:mr-20 mr-10 float-right w-1/3">
+       <div class="md:mr-2 lg:mr-20 mr-10 float-right w-1/3">
          <div class="shadow-2xl h-20  sm:text-2xl text-2xl md:text-5xl w-full  bg-gradient-to-r from-blue-400 to-blue-500 border-b-0 border-blue-300 relative h-32 md:h-48  mt-12   md:pl-0  items-center md:justify-center text-white rounded">
-           <p class="text-sm md:text-4xl absolute mt-0 top-0 p-2 w-10/12 md:text-3xl pl-3">Services Availed</p>
+           <p class="text-sm md:text-4xl absolute mt-0 p-2 w-10/12 md:text-3xl pl-3">Services Availed</p>
            <br>
 				<?php
 					$resultss = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE userID ='$sub' and status='complete';");
 					$rows = mysqli_fetch_array($resultss);
 					$totals = $rows[0];
 				?>
-           <p class="text-sm md:text-3xl top-8 p-4 md:top-20 absolute"><?php echo  $totals;  ?></p>
+           <p class="text-sm md:text-3xl p-4 md0 absolute"><?php echo  $totals;  ?></p>
          </div>
       </div>
  <div class="h-80">
@@ -50,11 +50,12 @@ include '../includes/connectdb.php';
  <table class=" m-auto md:mt-2 md:ml-56 md:mr-4 w-9/12 border-collapse lg:ml-60">
 	 <caption class="font-extrabold text-2xl">Upcoming Appointments</caption>
 	 <tr class="bg-gray-100 border-b-2 border-gray-200 text-center">
-		 <th class="w-1/5">Appointment ID</th>
-		 <th class="w-1/5">Time</th>
-		 <th class="w-1/5">Service Name</th>
-		 <th class="w-1/5">Pet Name</th>
-		 <th class="w-1/5">Status</th>
+		 <th class="p-2">Appointment ID</th>
+		 <th class="p-2">Date</th>
+		 <th class="p-2">Time</th>
+		 <th class="p-2">Service Name</th>
+		 <th class="p-2">Pet Name</th>
+		 <th class="p-2">Status</th>
 	 </tr>
 	 <?php
 	 $date = date("Y-m-d");
@@ -68,11 +69,12 @@ include '../includes/connectdb.php';
 		 $test1 = new DateTime("$temp1");
 		 if($test1>$now){
 		 echo'<tr class="text-center">';
-			 echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-			 echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
-			 echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
-			 echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
-			 echo'<td class="bg-white top-0 p-1">'.$row["status"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["appointmentID"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["dates"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["time"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["serviceName"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["petName"].'</td>';
+			 echo'<td class="bg-white p-1">'.$row["status"].'</td>';
 			  echo '</tr>';
 		 }
 	 }
@@ -90,11 +92,12 @@ include '../includes/connectdb.php';
  ?>
 	<caption class="font-extrabold text-2xl">Past Appointments</caption>
 	<tr class="bg-gray-100 border-b-2 border-gray-200 p-2 text-center">
-		<th class="w-1/5">Appointment ID</th>
-		<th class="w-1/5">Time</th>
-		<th class="w-1/5">Service Name</th>
-		<th class="w-1/5">Pet Name</th>
-		<th class="w-1/5">Status</th>
+		<th class="p-2">Appointment ID</th>
+		<th class="p-2">Date</th>
+		<th class="p-2">Time</th>
+		<th class="p-2">Service Name</th>
+		<th class="p-2">Pet Name</th>
+		<th class="p-2">Status</th>
 	</tr>
 	<?php
 	while($row = $dateQuery1->fetch_assoc()) {
@@ -102,11 +105,12 @@ include '../includes/connectdb.php';
 		$test = new DateTime("$temp");
 		if($test<$now1){
 		echo'<tr class="text-center">';
-			echo'<td class="bg-white top-0 p-1">'.$row["appointmentID"].'</td>';
-			echo'<td class="bg-white top-0 p-1">'.$row["time"].'</td>';
-			echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
-			echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
-			echo'<td class="bg-white top-0 p-1">'.$row["status"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["appointmentID"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["dates"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["time"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["serviceName"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["petName"].'</td>';
+			echo'<td class="bg-white p-1">'.$row["status"].'</td>';
 			echo '</tr>';
 		}else{
 		}
