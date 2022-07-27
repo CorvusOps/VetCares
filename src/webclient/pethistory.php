@@ -51,9 +51,6 @@ include '../includes/connectdb.php';
                   echo'<td class="bg-white top-0 p-1">'.$row["prescription"].'</td>'; 
                   echo'<td class="bg-white top-0 p-1">'.$row["VetDoc"].'</td>'; 
                   echo'<td class="bg-white top-0 p-1">'.$row["dateRecorded"].'</td>'; 
-                  echo'<td class="bg-white top-0 p-1">
-						        <a href="#"> <ion-icon name="create-outline"></ion-icon></a>
-                    </td>';
               }           
                 echo '</tr>';      
             ?>
