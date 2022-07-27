@@ -45,7 +45,7 @@
                     </div>
                     <div>
                         <label for="veterinarian" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Veterinarian</label>
-                        <input type="text" name="veterinarian" id="veterinarian" placeholder="Pet Age" rows="3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white row-span-2" required>
+                        <input type="text" name="veterinarian" id="veterinarian" placeholder="Veterinary Doctor" rows="3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white row-span-2" required>
                     </div>
                     <div>
                         
