@@ -32,14 +32,18 @@ include '../includes/connectdb.php';
       <table class="m-5 md:mt-2 md:ml-56 md:mr-4 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg ">
 				<?php
 
-				 $Query = mysqli_query($connectdb,"SELECT * FROM records;");
+				 $Query = mysqli_query($connectdb,"SELECT recordID, dateRecorded, r.petID, a.pet_recordID, a.petName, r.serviceID, s.servicesID, s.serviceName, prescription, VetDoc
+                                 FROM records AS r LEFT JOIN pet AS a ON r.petID=a.pet_recordID
+                                 LEFT JOIN services AS s ON r.serviceID=s.servicesID;");
 				 ?>
          <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
             <th class="p-2">Record ID</th>
             <th class="p-2">Date Recorded</th>
             <th class="p-2">Pet ID</th>
-            <th class="p-2">Services ID</th>
+            <th class="p-2">Pet Name</th>
+            <th class="p-2">Service ID</th>
+            <th class="p-2">Service Name</th>
             <th class="p-2">Prescription</th>
             <th class="p-2">Veterinary</th>
             <th class="p-2">Action</th>
@@ -51,14 +55,17 @@ include '../includes/connectdb.php';
 						echo'<td class="bg-white top-0 p-1">'.$row["recordID"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["dateRecorded"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["petID"].'</td>';
+            echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["serviceID"].'</td>';
+            echo'<td class="bg-white top-0 p-1">'.$row["serviceName"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["prescription"].'</td>';
 						echo'<td class="bg-white top-0 p-1">'.$row["VetDoc"].'</td>';
             echo'<td class="bg-white top-0 p-2">';
+            echo '<a href="../crud/records_update.php?recordID='.$row['recordID'].'">
+                <ion-icon name="create-outline"></ion-icon></a>';
             echo '<a href="../crud/records_delete.php?recordID='.$row['recordID'].'">
                 <ion-icon name="trash-outline"></ion-icon></a>';
             echo '</td>';
-
 
 				}
 					echo '</tr>';
