@@ -15,8 +15,9 @@ include '../includes/connectdb.php';
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../../public/styles.css">
+    <link rel="icon" href="../images/templogo.png">
     <title>Pet Records</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">

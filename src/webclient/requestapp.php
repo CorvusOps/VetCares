@@ -10,7 +10,7 @@ include '../includes/connectdb.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
-    <meta charset="utf-8">
+    <link rel="icon" href="../images/templogo.png">
     <title>Request Appointment</title>
   </head>
   <body>
