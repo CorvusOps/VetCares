@@ -9,9 +9,11 @@ include '../includes/connectdb.php';
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title>Client Panel</title>
+	<link rel="stylesheet" href="../../public/styles.css">
+	<link rel="icon" href="../images/templogo.png">
+    <title>Client Dashboard</title>
+
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
 
@@ -37,7 +39,7 @@ include '../includes/connectdb.php';
            <p class="text-sm md:text-4xl absolute mt-0 p-2 w-10/12 md:text-3xl pl-3">Services Availed</p>
            <br>
 				<?php
-					$resultss = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE userID ='$sub' and status='complete';");
+					$resultss = mysqli_query($connectdb,"SELECT COUNT(*) FROM appointments WHERE userID ='$sub' and status='complete'");
 					$rows = mysqli_fetch_array($resultss);
 					$totals = $rows[0];
 				?>
@@ -62,7 +64,7 @@ include '../includes/connectdb.php';
    $now = new DateTime();
    $dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
    					p.petName, s.servicesID, s.serviceName, a.status, a.userID FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
-   					LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates, time;");
+   					LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates, time");
 
 	 while($row = mysqli_fetch_array($dateQuery)) {
 		 $temp1 = $row['dates'];
@@ -88,7 +90,7 @@ include '../includes/connectdb.php';
 	$now1 = new DateTime();
  	$dateQuery1 = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
 	 p.petName, s.servicesID, s.serviceName, a.status, a.userID FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
-	 LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates DESC, time DESC;");
+	 LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates DESC, time DESC");
  ?>
 	<caption class="font-extrabold text-2xl">Past Appointments</caption>
 	<tr class="bg-gray-100 border-b-2 border-gray-200 p-2 text-center">

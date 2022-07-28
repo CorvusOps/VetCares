@@ -9,16 +9,17 @@ if($_SESSION['client_sid']==session_id())
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="../../public/styles.css">
+    <link rel="icon" href="../images/templogo.png">
+    <title>Edit Pet Info</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
     
     <?php
       $pet_recordID = $_GET['pet_recordID'];
   
-      $petquery = mysqli_query($connectdb, "SELECT * FROM pet WHERE pet_recordID ='$pet_recordID';");
+      $petquery = mysqli_query($connectdb, "SELECT * FROM pet WHERE pet_recordID ='$pet_recordID'");
       while($row = mysqli_fetch_array($petquery)){
           $petName = $row['petName'];
           $petAge = $row['petAge'];
