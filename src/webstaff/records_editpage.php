@@ -103,7 +103,7 @@ if($_SESSION['staff_sid']==session_id())
           value="<?php echo $recordVetDoc; ?>"
         />
       </div>
-      <button type="submit" formaction="../crud/records_update.php" name="button" class="mt-5 border-green-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Update Service</button>
+      <button type="submit" formaction="../crud/records_update.php" name="button" class="mt-5 border-green-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Update Records</button>
       <a href="records.php" name="button" class="mt-5 border-red-900 bg-blue-300 font-bold border-2 p-2 rounded-md">Cancel</a>
     </form>
 

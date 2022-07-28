@@ -15,28 +15,34 @@ include '../includes/connectdb.php';
   </head>
   <body>
     <?php include 'clientsidebar.html' ?>
-    <h1 class="md:ml-16 m-auto text-4xl text-white font-bold justify-center mt-10 text-center">Set Appointment</h1>
-        <div class="">
-          <div class=" ml-20 mt-20 md:mt-20 md:ml-60 md:mr-4 w-full h-60">
-          <form class="" action="appointmentSub.php" method="post">
-              <div class="my-2">
-                <label for="date" class="font-bold w-2">Date</label>
-                <input type="date" name="date" placeholder="Appointment Date" class="ml-9 bg-blue-200 md:bg-blue-300 border-b-2 border-black  ">
-              </div>
-
-              <div class="my-2">
+   
+    <form class="px-4 rounded mx-auto max-w-3xl w-full my-32 inputs space-y-6" action="appointmentSub.php" method="post">
+      <div>
+				<h1 class="text-4xl font-bold">Request Appointment</h1>
+			</div>          
+        <div class="flex space-x-4">
+          <div class="w-1/2">
                 <label for="time" class="font-bold">Time</label>
-                <input type="text" name="time" placeholder="Appointment Time" class="ml-9 bg-blue-200 md:bg-blue-300 border-b-2 border-black">
-              </div>
-
-							<div class="my-2">
+                <input type="text" name="time" placeholder="Appointment Time" 
+                class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400">
+          </div>
+				  <div class="w-1/2">
+                <label for="date" class="font-bold w-2">Date</label>
+                <input type="date" name="date" placeholder="Appointment Date" 
+                class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400">
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <div class="w-1/2">
 								<label for="contact" class="font-bold">Contact</label>
-								<input type="text" name="contact" placeholder="Contact Number" class="ml-5 bg-blue-200 md:bg-blue-300 border-b-2 border-black">
-							</div>
-
-              <div class="my-2">
+								<input type="text" name="contact" placeholder="Contact Number" 
+                class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400">
+					</div>
+          <div class="w-1/2">
                 <label for="pet" class="font-bold w-1/12">Pet Name</label>
-                <select class=" bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="pet">
+                <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400
+                name="pet">
+                <option value="">--Select Pet--</option>
                   <?php
                       $sql = "SELECT pet_recordID, petName FROM pet WHERE petUserID=$user";
                       $result = $connectdb->query($sql);
@@ -46,27 +52,27 @@ include '../includes/connectdb.php';
                   ?>
                 </select>
               </div>
-
-              <div class="my-2">
-                <label for="service" class="font-bold w-1/12">Service(s)</label>
-                <select class=" bg-blue-200 md:bg-blue-300 border-b-2 border-black" name="service">
-                <?php
-                    $sql = "SELECT servicesID, serviceName FROM services";
-                    $result = $connectdb->query($sql);
-                    while($row = $result->fetch_assoc()) {
-                      echo"<option value=$row[servicesID]>$row[serviceName]</option>";
-                    }
-                ?>
-                </select>
-              </div>
-
-              <input
-                    type="submit"
-                    value="Request Appointment"
-                    class="my-2 border-gray-600 px-3 p-2 rounded bg-white text-black shadow-md hover:bg-blue-800 hover:text-white hover:shadow-lg">
-            </form>
-          </div>
         </div>
+        <div>
+          <label for="service" class="font-bold w-1/12">Service(s)</label>
+          <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400
+          name="service">
+          <option value="">--Select Service--</option>
+          <?php
+              $sql = "SELECT servicesID, serviceName FROM services";
+              $result = $connectdb->query($sql);
+              while($row = $result->fetch_assoc()) {
+                echo"<option value=$row[servicesID]>$row[serviceName]</option>";
+              }
+          ?>
+          </select>
+        </div>
+
+              
+              <button type="submit" name="button1" class="mt-5 border-green-700 border-2 p-2 rounded-md">Set Appointment</button>
+              <button type="reset" name="button2" class="mt-5 border-gray-700 border-2 p-2 rounded-md">Clear</button>
+            
+    </form>
   </body>
 </html>
 <?php
