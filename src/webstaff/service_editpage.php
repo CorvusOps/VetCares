@@ -11,7 +11,8 @@ if($_SESSION['staff_sid']==session_id())
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <link rel="icon" href="../images/templogo.png">
+    <title>Edit Service Info</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
     
@@ -34,7 +35,7 @@ if($_SESSION['staff_sid']==session_id())
       <div>
         <h1 class="text-4xl font-bold">UPDATE SERVICE</h1>
         <p class="text-gray-600">
-          IDK a note maybe
+          Update Service Information
         </p>
         <input type="hidden" name="servicesID" value="<?php echo $servicesID; ?>">
       </div>
@@ -56,7 +57,7 @@ if($_SESSION['staff_sid']==session_id())
           value="<?php echo $serviceDesc; ?>"
         />
         <p class="text-sm text-gray-600">
-          IDK what to put either XD 
+          Short description of the service
         </p>
       </div>
       <div>

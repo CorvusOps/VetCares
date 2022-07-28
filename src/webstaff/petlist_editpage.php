@@ -9,9 +9,10 @@ if($_SESSION['staff_sid']==session_id())
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="../../public/styles.css">
+    <link rel="icon" href="../images/templogo.png">
+    <title>Edit Pet Info</title>
   </head>
   <body class="w-full h-full bg-blue-200 md:bg-blue-300">
     
@@ -35,7 +36,7 @@ if($_SESSION['staff_sid']==session_id())
       <div>
         <h1 class="text-4xl font-bold">UPDATE PET INFO</h1>
         <p class="text-gray-600">
-          IDK a note maybe
+          Update your pet's information
         </p>
         <input type="hidden" name="pet_recordID" value="<?php echo $pet_recordID; ?>">
       </div>
@@ -56,9 +57,7 @@ if($_SESSION['staff_sid']==session_id())
           name="petAge"
           value="<?php echo $petAge; ?>"
         />
-        <p class="text-sm text-gray-600">
-          IDK what to put either XD 
-        </p>
+
       </div>
       <div>
       <select name="petCategoryID" id="category" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
