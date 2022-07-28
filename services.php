@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
     <link rel="stylesheet" href="public/styles.css">
-    <title></title>
+    <link rel="icon" href="src/images/templogo.png">
+    <title>Services</title>
   </head>
 
   <body class="text-green-900">
