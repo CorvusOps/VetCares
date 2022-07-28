@@ -7,7 +7,8 @@ include '../includes/connectdb.php';
             FROM records AS r
             LEFT JOIN services AS s ON r.serviceID=s.servicesID
             LEFT JOIN pet AS p ON p.pet_recordID=r.petID
-            WHERE petUserID='$user'";
+            WHERE petUserID='$user'
+            ORDER BY dateRecorded DESC";
     $result = $connectdb->query($sql);
 		?>
 <!DOCTYPE html>
