@@ -62,7 +62,7 @@ include '../includes/connectdb.php';
    $now = new DateTime();
    $dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
    					p.petName, s.servicesID, s.serviceName, a.status, a.userID FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
-   					LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub;");
+   					LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates, time;");
 
 	 while($row = mysqli_fetch_array($dateQuery)) {
 		 $temp1 = $row['dates'];
@@ -88,7 +88,7 @@ include '../includes/connectdb.php';
 	$now1 = new DateTime();
  	$dateQuery1 = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
 	 p.petName, s.servicesID, s.serviceName, a.status, a.userID FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
-	 LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub;");
+	 LEFT JOIN services AS s ON a.servicesID=s.servicesID WHERE userID=$sub ORDER BY dates DESC, time DESC;");
  ?>
 	<caption class="font-extrabold text-2xl">Past Appointments</caption>
 	<tr class="bg-gray-100 border-b-2 border-gray-200 p-2 text-center">

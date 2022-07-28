@@ -29,12 +29,29 @@ include '../includes/connectdb.php';
 
     <?php include 'modal_addrecord.php' ?>
 
+    <!--Search Bar-->
+    <div class="grid place-content-end my-2 md:my-0 md:mr-28">
+        <form class="flex items-center" action="" method="GET">
+          <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="bg-gray-50 text-gray-900 border-2 border-white text-sm block w-52 p-1" placeholder="Search record" required>
+          <button type="submit" class="block text-black hover:text-white bg-slate-400 hover:bg-gray-700 font-medium text-base p-1 w-10 text-center" type="button">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+        </form>
+    </div>
+
       <table class="m-5 md:mt-2 md:ml-56 md:mr-4 md:w-9/12 text-left border-collapse lg:ml-60 shadow-lg ">
 				<?php
-
+        
 				 $Query = mysqli_query($connectdb,"SELECT recordID, dateRecorded, r.petID, a.pet_recordID, a.petName, r.serviceID, s.servicesID, s.serviceName, prescription, VetDoc
                                  FROM records AS r LEFT JOIN pet AS a ON r.petID=a.pet_recordID
-                                 LEFT JOIN services AS s ON r.serviceID=s.servicesID;");
+                                 LEFT JOIN services AS s ON r.serviceID=s.servicesID ORDER BY dateRecorded DESC;");
+
+          if(isset($_GET['search'])){
+            $filtervalues = $_GET['search'];
+            $Query = mysqli_query($connectdb,"SELECT recordID, dateRecorded, r.petID, a.pet_recordID, a.petName, r.serviceID, s.servicesID, s.serviceName, prescription, VetDoc
+                                 FROM records AS r LEFT JOIN pet AS a ON r.petID=a.pet_recordID
+                                 LEFT JOIN services AS s ON r.serviceID=s.servicesID WHERE a.petName LIKE '%$filtervalues%' ORDER BY dateRecorded DESC;");
+          }
 				 ?>
          <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
@@ -50,6 +67,7 @@ include '../includes/connectdb.php';
           </tr>
         </head>
 				<?php
+        if($Query->num_rows > 0){
 				while($row = $Query->fetch_assoc()) {
 					echo'<tr>';
 						echo'<td class="bg-white top-0 p-1">'.$row["recordID"].'</td>';
@@ -69,7 +87,13 @@ include '../includes/connectdb.php';
 
 				}
 					echo '</tr>';
+        } else{
+          echo'<tr>';
+          echo'<td colspan="9" class="bg-white top-0 p-1">No Record Found.</td>';
+          echo'<tr>';
+       }
 				 ?>
+         
       </table>
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

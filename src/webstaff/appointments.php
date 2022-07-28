@@ -26,7 +26,7 @@ include '../includes/connectdb.php';
 			$date = date("Y-m-d");
 			$dateQuery = mysqli_query($connectdb,"SELECT a.appointmentID,a.dates, a.time, a.servicesID, a.petID, p.pet_recordID,
 									p.petName, s.servicesID, s.serviceName, a.status FROM appointments AS a LEFT JOIN pet AS p ON a.petID=p.pet_recordID
-									LEFT JOIN services AS s ON a.servicesID=s.servicesID;");
+									LEFT JOIN services AS s ON a.servicesID=s.servicesID ORDER BY dates, time;");
 			?>
 			<thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
 				<tr class="">
