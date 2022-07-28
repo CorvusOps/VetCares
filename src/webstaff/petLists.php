@@ -3,9 +3,6 @@ include '../includes/connectdb.php';
 if($_SESSION['staff_sid']==session_id())
 {
     $user = $_SESSION['user_id'];
-    $sql = "SELECT p.pet_recordID, p.petName, p.petAge, p.petCategoryID, c.petCategoryID, c.name 
-            FROM pet AS p LEFT JOIN pet_category AS c ON p.petCategoryID=c.petCategoryID";
-    $result = $connectdb->query($sql);
     
 ?>
 <!DOCTYPE html>
@@ -30,18 +27,40 @@ if($_SESSION['staff_sid']==session_id())
       </button>
     </div>
 
+        <!--Search Bar-->
+    <div class="grid place-content-end my-2 mx-16 md:my-0 md:mr-28">
+        <form class="flex items-center" action="" method="GET">
+          <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="bg-gray-50 text-gray-900 border-2 border-white text-sm block w-52 p-1" placeholder="Search pets" required>
+          <button type="submit" class="block text-black hover:text-white bg-slate-400 hover:bg-gray-700 font-medium text-base p-1 w-10 text-center" type="button">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+        </form>
+    </div>
+
       <table class="m-auto md:mt-2 md:ml-56 md:mr-4 w-9/12 text-left border-collapse lg:ml-60 shadow-lg">
         <thead class=" bg-gray-100 border-b-2 border-gray-200 text-center p-2">
           <tr class="">
-            <th class="w-1/5 p-2">Pet ID</th>
-            <th class="w-1/5 p-2">Pet Name</th>
-            <th class="w-1/5 p-2">Pet Age</th>
-            <th class="w-1/5 p-2">Pet Type</th>
-            <th class="w-1/5 p-2">Action</th>
+            <th class="p-2">Pet ID</th>
+            <th class="p-2">Pet Name</th>
+            <th class="p-2">Pet Age</th>
+            <th class="p-2">Pet Type</th>
+            <th class="p-2">Owner</th>
+            <th class="p-2">Action</th>
           </tr>
         </thead>
         <tbody class="text-center">
           <?php  
+          $sql = "SELECT p.pet_recordID, p.petName, p.petAge, p.petCategoryID, c.petCategoryID, c.name, p.petUserID, u.userID, user_firstname, user_lastname
+          FROM pet AS p LEFT JOIN users AS u ON p.petUserID=u.userID LEFT JOIN pet_category AS c ON p.petCategoryID=c.petCategoryID";
+          
+          //checks if the search bar is null
+          if(isset($_GET['search'])){ 
+            $filtervalues = $_GET['search'];
+            $sql = "SELECT p.pet_recordID, p.petName, p.petAge, p.petCategoryID, c.petCategoryID, c.name, p.petUserID, u.userID, user_firstname, user_lastname
+            FROM pet AS p LEFT JOIN users AS u ON p.petUserID=u.userID LEFT JOIN pet_category AS c ON p.petCategoryID=c.petCategoryID WHERE p.petName LIKE '%$filtervalues%'";
+          }
+          $result = $connectdb->query($sql);
+
             if ($result->num_rows > 0) {
   
               while($row = $result->fetch_assoc()) {
@@ -50,6 +69,7 @@ if($_SESSION['staff_sid']==session_id())
                   echo'<td class="bg-white top-0 p-1">'.$row["petName"].'</td>';
                   echo'<td class="bg-white top-0 p-1">'.$row["petAge"].'</td>';
                   echo'<td class="bg-white top-0 p-1">'.$row["name"].'</td>'; 
+                  echo'<td class="bg-white top-0 p-1">'.$row["user_firstname"].' '.$row["user_lastname"].'</td>'; 
                   echo   '<td class="bg-white top-0 p-2">';
                   echo '<a href="petlist_editpage.php?pet_recordID='.$row["pet_recordID"].'">
                     <ion-icon name="create-outline"></ion-icon> </a>';
@@ -58,7 +78,12 @@ if($_SESSION['staff_sid']==session_id())
                   echo'</td>';
                           
               }           
-                echo '</tr>';      
+                echo '</tr>'; 
+              } else{
+                echo'<tr>';
+                echo'<td colspan="9" class="bg-white top-0 p-1">No Record Found.</td>';
+                echo'<tr>';
+             }     
             ?>
           </tbody>
         </table>
@@ -72,9 +97,6 @@ if($_SESSION['staff_sid']==session_id())
   </body>
 </html>
 <?php
-} else {
-  echo "<center>No records found.</center>";
-}
 	}else
 	{
 		if($_SESSION['admin_sid']==session_id()){
