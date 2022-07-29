@@ -40,7 +40,7 @@ include '../includes/connectdb.php';
 					</div>
           <div class="w-1/2">
                 <label for="pet" class="font-bold w-1/12">Pet Name</label>
-                <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400
+                <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
                 name="pet">
                 <option value="">--Select Pet--</option>
                   <?php
@@ -55,7 +55,7 @@ include '../includes/connectdb.php';
         </div>
         <div>
           <label for="service" class="font-bold w-1/12">Service(s)</label>
-          <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400
+          <select class="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
           name="service">
           <option value="">--Select Service--</option>
           <?php
